@@ -22,7 +22,12 @@ QMAKE_CXXFLAGS += -std=c++0x
 #QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp \
-    hardwareemulator/_group_hardwareemulator.cpp
+    factory-hardware-emulator/_group_factory-hardware-emulator.cpp \
+    factory-hardware-emulator/EmulatorApplication.cpp \
+    factory-hardware-emulator/network/_group_network.cpp \
+    factory-hardware-emulator/network/ModbusNetworkController.cpp \
+    factory-hardware-emulator/device/_group_device.cpp \
+    factory-hardware-emulator/device/Device.cpp
 
 HEADERS += \
-    hardwareemulator/factory-hardware-emulator.h
+    factory-hardware-emulator/factory-hardware-emulator.h
