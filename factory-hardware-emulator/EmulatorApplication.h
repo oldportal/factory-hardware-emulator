@@ -29,6 +29,11 @@ virtual ~EmulatorApplication();
 
 // members:
 
+public:
+std::shared_ptr< oldportal::fhe::network::ModbusNetworkController > _network;
+public:
+std::vector< std::shared_ptr< oldportal::fhe::device::Device > > _devices;
+
 
 //methods:
 
