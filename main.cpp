@@ -62,6 +62,8 @@ int main(int argc, char *argv[])
             //        (std::static_pointer_cast<oldportal::fc::factory::manufacturing::FactoryLoader>(loader));
             // free loader
             //loader.reset();
+
+            application = std::make_shared<oldportal::fhe::EmulatorApplication>();
         }
         else
         {
@@ -70,6 +72,7 @@ int main(int argc, char *argv[])
             std::cout << "Initialize with default configuration" << std::endl;
 
             application = std::make_shared<oldportal::fhe::EmulatorApplication>();
-
+            application->_network = std::make_shared<oldportal::fhe::network::ModbusNetworkController>();
+            //application->_devices.push_back(std::make_shared<oldportal::fhe::device::Device>());
         }
 }
