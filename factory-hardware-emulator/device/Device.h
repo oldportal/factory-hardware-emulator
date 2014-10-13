@@ -10,7 +10,7 @@
 
 
 /**
-General embedded device class.
+General modbus slave embedded device emulator.
 */
 namespace oldportal 
 {
