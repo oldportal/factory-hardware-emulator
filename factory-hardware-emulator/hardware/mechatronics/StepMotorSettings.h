@@ -1,6 +1,6 @@
 
-#ifndef H_77feb5a37936fae508e72d629c5698b8_H
-#define H_77feb5a37936fae508e72d629c5698b8_H
+#ifndef H_06a888ceb159a82535d1cdadd2767b5f_H
+#define H_06a888ceb159a82535d1cdadd2767b5f_H
 
 
 
@@ -10,7 +10,7 @@
 
 
 /**
-Step motor emulation.
+
 */
 namespace oldportal 
 {
@@ -21,28 +21,30 @@ namespace hardware
 namespace mechatronics 
 {
 
-class StepMotor
-:  public virtual oldportal::fhe::hardware::HardwareDevice
+class StepMotorSettings
 {
 // constructors:
 public:
-StepMotor();
+StepMotorSettings();
 
-
-public:
-virtual ~StepMotor();
 
 // members:
 
 public:
-oldportal::fhe::hardware::mechatronics::StepMotorSettings _settings;
+bool _end_stoppers_enabled;
+public:
+bool _logic_limits_enabled;
+public:
+long _max_end_stopper_position;
+public:
+long _max_logic_position;
+public:
+long _min_end_stopper_position;
+public:
+long _min_logic_position;
 
 
 //methods:
-
-public:
-virtual void step();
-
 
 
 //child groups:
@@ -68,11 +70,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_77feb5a37936fae508e72d629c5698b8_H
+#endif // H_06a888ceb159a82535d1cdadd2767b5f_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_77feb5a37936fae508e72d629c5698b8_INLINES_H
-#define H_77feb5a37936fae508e72d629c5698b8_INLINES_H
+#ifndef H_06a888ceb159a82535d1cdadd2767b5f_INLINES_H
+#define H_06a888ceb159a82535d1cdadd2767b5f_INLINES_H
 
-#endif // H_77feb5a37936fae508e72d629c5698b8_INLINES_H
+#endif // H_06a888ceb159a82535d1cdadd2767b5f_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

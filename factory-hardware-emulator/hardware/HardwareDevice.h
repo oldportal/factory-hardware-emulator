@@ -34,6 +34,21 @@ virtual ~HardwareDevice();
 
 // members:
 
+public:
+bool _controllerTemperatureSupported;
+public:
+bool _deviceTemperatureSupported;
+/**
+Controller temperature in Celsius.
+*/
+public:
+float _controllerTemperature;
+/**
+Device temperature in Celsius.
+*/
+public:
+float _deviceTemperature;
+
 
 //methods:
 
