@@ -88,6 +88,7 @@ class HardwareDevice;
 namespace mechatronics 
 {
 class StepMotor;
+class StepMotorSettings;
 
 }// namespace mechatronics
 }// namespace hardware
@@ -112,6 +113,7 @@ class ModbusNetworkController;
 #include "EmulatorApplication.h"
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
+#include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 
@@ -147,6 +149,7 @@ namespace fhe
 #include "EmulatorApplication.h"
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
+#include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 
