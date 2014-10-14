@@ -16,6 +16,8 @@
 oldportal::fhe::hardware::mechatronics::StepMotorSettings::StepMotorSettings()
 
 {//BEGIN_2541b038464227043a96c274b108daaf
+    _default_start_position = 0;
+
     // Logic limits
     _max_logic_position = 1000;
     _min_logic_position = -1000;

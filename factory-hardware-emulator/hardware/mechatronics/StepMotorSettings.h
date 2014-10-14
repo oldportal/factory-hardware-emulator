@@ -35,6 +35,8 @@ bool _end_stoppers_enabled;
 public:
 bool _logic_limits_enabled;
 public:
+long _default_start_position;
+public:
 long _max_end_stopper_position;
 public:
 long _max_logic_position;
