@@ -23,7 +23,7 @@ class ModbusNetworkController
 {
 // constructors:
 public:
-ModbusNetworkController();
+ModbusNetworkController(std::weak_ptr< oldportal::fhe::EmulatorApplication > application);
 
 
 public:
@@ -31,8 +31,24 @@ virtual ~ModbusNetworkController();
 
 // members:
 
+protected:
+modbus_mapping_t* _modbus_mapping;
+protected:
+modbus_t* _modbus_ctx;
+protected:
+uint8_t* _query;
+public:
+std::weak_ptr< oldportal::fhe::EmulatorApplication > _application;
+
 
 //methods:
+
+public:
+void init();
+
+public:
+void run();
+
 
 
 //child groups:

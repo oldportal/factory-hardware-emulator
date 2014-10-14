@@ -61,6 +61,9 @@ For:
 //BEGIN_TYPE_DECLARATION_12a3f5a7f8c363b6a6ba95729499e214 NETWORK_TIME
 typedef uint64_t NETWORK_TIME;
 //END_TYPE_DECLARATION_12a3f5a7f8c363b6a6ba95729499e214 NETWORK_TIME
+//BEGIN_TYPE_DECLARATION_15b4a7c72e42802c0243269250ce30d9 modbus_mapping_t
+/* libmodbus mapping */
+//END_TYPE_DECLARATION_15b4a7c72e42802c0243269250ce30d9 modbus_mapping_t
 //BEGIN_TYPE_DECLARATION_6acb9435986539fcbffc1772eb77876d modbus_t
 /* libmodbus context */
 //END_TYPE_DECLARATION_6acb9435986539fcbffc1772eb77876d modbus_t
@@ -78,6 +81,15 @@ namespace device
 class Device;
 
 }// namespace device
+namespace hardware 
+{
+
+namespace mechatronics 
+{
+class StepMotor;
+
+}// namespace mechatronics
+}// namespace hardware
 namespace network 
 {
 class ModbusNetworkController;
@@ -94,9 +106,11 @@ class ModbusNetworkController;
 
 // Include project classes, for declarations
 #include "device/_group_device.h"
+#include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
+#include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 
 
@@ -126,9 +140,11 @@ namespace fhe
 
 // Include classes again, for inline implementation:
 #include "device/_group_device.h"
+#include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
+#include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 
 

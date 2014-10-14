@@ -27,7 +27,10 @@ SOURCES += main.cpp \
     factory-hardware-emulator/network/_group_network.cpp \
     factory-hardware-emulator/network/ModbusNetworkController.cpp \
     factory-hardware-emulator/device/_group_device.cpp \
-    factory-hardware-emulator/device/Device.cpp
+    factory-hardware-emulator/device/Device.cpp \
+    factory-hardware-emulator/hardware/_group_hardware.cpp \
+    factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp \
+    factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp
 
 HEADERS += \
     factory-hardware-emulator/factory-hardware-emulator.h
