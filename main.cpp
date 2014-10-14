@@ -55,6 +55,8 @@ int main(int argc, char *argv[])
             std::string config_filename = vm["config"].as<std::string>();
             std::cout << "Initialize with configuration file: " << config_filename << std::endl;
 
+            application = std::make_shared<oldportal::fhe::EmulatorApplication>();
+
             // init loader
             //auto loader = std::make_shared<oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader>(config_filename);
             //loader->init();
@@ -63,11 +65,14 @@ int main(int argc, char *argv[])
             // free loader
             //loader.reset();
 
-            application = std::make_shared<oldportal::fhe::EmulatorApplication>();
+            //TODO: load application configuration
+
+            application->_network->init();
+            application->_network->run();
         }
         else
         {
-            // pure program loader as default
+            // pure program loader (default)
 
             std::cout << "Initialize with default configuration" << std::endl;
 
@@ -77,5 +82,6 @@ int main(int argc, char *argv[])
             application->_devices.push_back(device);
 
             application->_network->init();
+            application->_network->run();
         }
 }
