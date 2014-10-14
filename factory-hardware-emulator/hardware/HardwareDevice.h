@@ -1,6 +1,6 @@
 
-#ifndef H_77feb5a37936fae508e72d629c5698b8_H
-#define H_77feb5a37936fae508e72d629c5698b8_H
+#ifndef H_1c569a58ca76cb5d525f8ff64b442fc9_H
+#define H_1c569a58ca76cb5d525f8ff64b442fc9_H
 
 
 
@@ -10,7 +10,9 @@
 
 
 /**
-Step motor emulation.
+OldPortal Project specific industrial network controlled embedded device emulator.
+
+Support OldPortal Project specific Modbus protocol extensions.
 */
 namespace oldportal 
 {
@@ -18,19 +20,17 @@ namespace fhe
 {
 namespace hardware 
 {
-namespace mechatronics 
-{
 
-class StepMotor
-:  public virtual oldportal::fhe::hardware::HardwareDevice
+class HardwareDevice
+:  public virtual oldportal::fhe::device::Device
 {
 // constructors:
 public:
-StepMotor();
+HardwareDevice();
 
 
 public:
-virtual ~StepMotor();
+virtual ~HardwareDevice();
 
 // members:
 
@@ -38,7 +38,7 @@ virtual ~StepMotor();
 //methods:
 
 public:
-virtual void step();
+virtual void step() = 0;
 
 
 
@@ -57,7 +57,6 @@ virtual void step();
 }// namespace oldportal
 }// namespace fhe
 }// namespace hardware
-}// namespace mechatronics
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -65,11 +64,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_77feb5a37936fae508e72d629c5698b8_H
+#endif // H_1c569a58ca76cb5d525f8ff64b442fc9_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_77feb5a37936fae508e72d629c5698b8_INLINES_H
-#define H_77feb5a37936fae508e72d629c5698b8_INLINES_H
+#ifndef H_1c569a58ca76cb5d525f8ff64b442fc9_INLINES_H
+#define H_1c569a58ca76cb5d525f8ff64b442fc9_INLINES_H
 
-#endif // H_77feb5a37936fae508e72d629c5698b8_INLINES_H
+#endif // H_1c569a58ca76cb5d525f8ff64b442fc9_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

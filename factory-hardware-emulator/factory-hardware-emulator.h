@@ -83,6 +83,7 @@ class Device;
 }// namespace device
 namespace hardware 
 {
+class HardwareDevice;
 
 namespace mechatronics 
 {
@@ -110,6 +111,7 @@ class ModbusNetworkController;
 #include "network/_group_network.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
+#include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 
@@ -144,6 +146,7 @@ namespace fhe
 #include "network/_group_network.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
+#include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 
