@@ -32,6 +32,8 @@ virtual ~ModbusNetworkController();
 // members:
 
 protected:
+int _socket;
+protected:
 modbus_mapping_t* _modbus_mapping;
 protected:
 modbus_t* _modbus_ctx;
