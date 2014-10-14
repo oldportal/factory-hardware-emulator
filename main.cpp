@@ -72,7 +72,10 @@ int main(int argc, char *argv[])
             std::cout << "Initialize with default configuration" << std::endl;
 
             application = std::make_shared<oldportal::fhe::EmulatorApplication>();
-            application->_network = std::make_shared<oldportal::fhe::network::ModbusNetworkController>();
-            //application->_devices.push_back(std::make_shared<oldportal::fhe::device::Device>());
+            application->_network = std::make_shared<oldportal::fhe::network::ModbusNetworkController>(application);
+            std::shared_ptr<oldportal::fhe::device::Device> device = std::make_shared<oldportal::fhe::hardware::mechatronics::StepMotor>();
+            application->_devices.push_back(device);
+
+            application->_network->init();
         }
 }
