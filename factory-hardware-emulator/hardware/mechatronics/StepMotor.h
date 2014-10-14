@@ -35,6 +35,8 @@ virtual ~StepMotor();
 // members:
 
 public:
+long _current_position;
+public:
 oldportal::fhe::hardware::mechatronics::StepMotorSettings _settings;
 
 
