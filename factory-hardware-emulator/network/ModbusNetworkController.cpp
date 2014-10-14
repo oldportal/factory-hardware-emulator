@@ -16,12 +16,15 @@
 oldportal::fhe::network::ModbusNetworkController::ModbusNetworkController(std::weak_ptr< oldportal::fhe::EmulatorApplication > application)
 
 {//BEGIN_2019c5510015ad3d8d2bcd7e203ed210
+    assert(!application.expired());
     _application = application;
 
     _modbus_ctx = nullptr;
     _modbus_mapping = nullptr;
     _query = nullptr;
     _socket = -1;
+
+    _run_thread_cycle_flag = false;
 }//END_2019c5510015ad3d8d2bcd7e203ed210
 
 
@@ -32,7 +35,8 @@ oldportal::fhe::network::ModbusNetworkController::~ModbusNetworkController()
         free(_query);
 
     if (_socket != -1) {
-        close(_socket);
+        ::close(_socket);
+        _socket = -1;
     }
 
     if (_modbus_mapping != nullptr)
@@ -45,6 +49,16 @@ oldportal::fhe::network::ModbusNetworkController::~ModbusNetworkController()
     }
 }//END_3b0b6e57a9ab008d2eb65c6395d8f01e
 
+
+void oldportal::fhe::network::ModbusNetworkController::close()
+{//BEGIN_084e72aff6e40ff9eba26970b1bd916f
+    _run_thread_cycle_flag = false;
+
+    if (_socket != -1) {
+        ::close(_socket);
+        _socket = -1;
+    }
+}//END_084e72aff6e40ff9eba26970b1bd916f
 
 void oldportal::fhe::network::ModbusNetworkController::init()
 {//BEGIN_3b09a28375be1e7d2d8a78eaea0d11a9
@@ -67,24 +81,35 @@ void oldportal::fhe::network::ModbusNetworkController::run()
     assert(_modbus_ctx);
     assert(_modbus_mapping);
     assert(_query);
+    assert(!_run_thread_cycle_flag);
 
 
     modbus_tcp_pi_accept(_modbus_ctx, &_socket);
 
-    for (;;)
+    _run_thread_cycle_flag = true;
+    while (_run_thread_cycle_flag)
     {
         // bytes received:
         int received_length;
 
+        // clear error register
+        errno = 0;
+
         received_length = modbus_receive(_modbus_ctx, _query);
         if (received_length > 0) {
             //TODO: run() - process device address
+            //uint8_t modbus_address = [];
             //TODO: run() - process request
 
             /* rc is the query size */
             modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
         } else if (received_length == -1) {
             /* Connection closed by the client or error */
+            if (errno != 0)
+            {
+                // out error description:
+                fprintf(stderr, "Receive request error: %s\n", modbus_strerror(errno));
+            }
             break;
         }
     }

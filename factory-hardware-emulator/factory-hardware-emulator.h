@@ -40,6 +40,7 @@ For:
 #include <chrono>
 #include <limits>
 #include <typeinfo>
+#include <csignal>
 
 // Boost
 #include <boost/date_time/posix_time/posix_time.hpp>
