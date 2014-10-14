@@ -16,7 +16,7 @@
 oldportal::fhe::hardware::mechatronics::StepMotor::StepMotor()
 
 {//BEGIN_af6f30859e21bb21da954b58d4c5a933
-
+    _current_position = _settings._default_start_position;
 }//END_af6f30859e21bb21da954b58d4c5a933
 
 
