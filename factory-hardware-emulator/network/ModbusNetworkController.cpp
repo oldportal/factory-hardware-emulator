@@ -58,10 +58,8 @@ void oldportal::fhe::network::ModbusNetworkController::init()
     _query = (uint8_t*)malloc(MODBUS_TCP_MAX_ADU_LENGTH);
 
     _socket = modbus_tcp_pi_listen(_modbus_ctx, 1);
-    modbus_tcp_pi_accept(_modbus_ctx, &_socket);
 
-
-    //TODO: init()
+    _modbus_mapping = modbus_mapping_new(500, 500, 500, 500);
 }//END_3b09a28375be1e7d2d8a78eaea0d11a9
 
 void oldportal::fhe::network::ModbusNetworkController::run()
@@ -70,7 +68,26 @@ void oldportal::fhe::network::ModbusNetworkController::run()
     assert(_modbus_mapping);
     assert(_query);
 
-    //TODO: run()
+
+    modbus_tcp_pi_accept(_modbus_ctx, &_socket);
+
+    for (;;)
+    {
+        // bytes received:
+        int received_length;
+
+        received_length = modbus_receive(_modbus_ctx, _query);
+        if (received_length > 0) {
+            //TODO: run() - process device address
+            //TODO: run() - process request
+
+            /* rc is the query size */
+            modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
+        } else if (received_length == -1) {
+            /* Connection closed by the client or error */
+            break;
+        }
+    }
 }//END_8e94675d1917f794cd825b81ee5da0b1
 
 
