@@ -4,6 +4,16 @@
 #include <boost/program_options.hpp>
 #include <boost/program_options/cmdline.hpp>
 
+// Global EmulatorApplication object
+std::shared_ptr<oldportal::fhe::EmulatorApplication> application;
+
+static void close_signal(int dummy)
+{
+    application->_network->close();
+
+    exit(dummy);
+}
+
 int main(int argc, char *argv[])
 {
     // command line parser
@@ -44,9 +54,6 @@ int main(int argc, char *argv[])
             return 1;
         }
 
-        // Global Factory object
-        std::shared_ptr<oldportal::fhe::EmulatorApplication> application;
-
         // init factory
         if (vm.count("config"))
         {
@@ -68,6 +75,10 @@ int main(int argc, char *argv[])
             //TODO: load application configuration
 
             application->_network->init();
+
+            // set exit signal cutch before enter main cylce
+            signal(SIGTERM, close_signal);
+
             application->_network->run();
         }
         else
@@ -82,6 +93,10 @@ int main(int argc, char *argv[])
             application->_devices.push_back(device);
 
             application->_network->init();
+
+            // set exit signal cutch before enter main cylce
+            signal(SIGTERM, close_signal);
+
             application->_network->run();
         }
 }
