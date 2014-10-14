@@ -30,7 +30,8 @@ SOURCES += main.cpp \
     factory-hardware-emulator/device/Device.cpp \
     factory-hardware-emulator/hardware/_group_hardware.cpp \
     factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp \
-    factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp
+    factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp \
+    factory-hardware-emulator/hardware/HardwareDevice.cpp
 
 HEADERS += \
     factory-hardware-emulator/factory-hardware-emulator.h
