@@ -31,6 +31,8 @@ virtual ~Device();
 
 // members:
 
+protected:
+modbus_mapping_t* _modbus_mapping;
 public:
 uint8_t _modbus_address;
 

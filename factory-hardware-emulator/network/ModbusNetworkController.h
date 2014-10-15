@@ -32,8 +32,6 @@ virtual ~ModbusNetworkController();
 // members:
 
 protected:
-modbus_mapping_t* _modbus_mapping;
-protected:
 modbus_t* _modbus_ctx;
 protected:
 mutable bool _run_thread_cycle_flag;
@@ -49,6 +47,9 @@ std::weak_ptr< oldportal::fhe::EmulatorApplication > _application;
 
 public:
 void close();
+
+public:
+modbus_t* getModbusContext();
 
 public:
 void init();
