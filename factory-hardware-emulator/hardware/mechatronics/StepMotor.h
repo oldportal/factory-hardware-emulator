@@ -47,7 +47,7 @@ Process Modbus request.
 If message is not BROADCAST then send response.
 */
 public:
-void process_request(const uint8_t* request, const uint16_t length, const uint8_t slave_address, const uint8_t function, const modbus_t* modbus_ctx);
+void process_request(const uint8_t* request, const uint16_t request_length, const uint8_t slave_address, const uint8_t modbus_function, const modbus_t* modbus_ctx);
 
 public:
 virtual void step();
