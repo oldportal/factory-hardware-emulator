@@ -120,19 +120,20 @@ void oldportal::fhe::network::ModbusNetworkController::run()
             uint16_t address = (_query[offset + 1] << 8) + _query[offset + 2];
 
             std::shared_ptr<oldportal::fhe::EmulatorApplication> application = _application.lock();
+            assert(application);
 
             for (auto device : application->_devices)
             {
                 assert(device);
-                if (slave_address == device->_modbus_address)
+                if (slave_address == MODBUS_BROADCAST_ADDRESS || slave_address == device->_modbus_address)
                 {
                     // send request to device
-                    //TODO: send request to device
-                    break;
+                    device->process_request(_query, received_length, slave_address, function, _modbus_ctx);
+
+                    if (slave_address != MODBUS_BROADCAST_ADDRESS)
+                        break;
                 }
             }
-
-            //modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
         } else if (received_length == -1) {
             /* Connection closed by the client or error */
             if (errno != 0)
