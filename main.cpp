@@ -97,6 +97,6 @@ int main(int argc, char *argv[])
             // set exit signal cutch before enter main cylce
             signal(SIGTERM, close_signal);
 
-            application->_network->run();
+            //application->_network->run();
         }
 }
