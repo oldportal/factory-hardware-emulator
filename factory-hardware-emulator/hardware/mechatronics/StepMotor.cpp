@@ -27,6 +27,12 @@ oldportal::fhe::hardware::mechatronics::StepMotor::~StepMotor()
 }//END_51c1a47c1ac6e7d841a5516bb0b5ab4a
 
 
+void oldportal::fhe::hardware::mechatronics::StepMotor::process_request(const uint8_t* request, const uint16_t length, const uint8_t slave_address, const uint8_t function, const modbus_t* modbus_ctx)
+{//BEGIN_5b55e939e368cf5f2f98e49c2e3d2cf6
+    //TODO: process_request() 
+    //modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
+}//END_5b55e939e368cf5f2f98e49c2e3d2cf6
+
 void oldportal::fhe::hardware::mechatronics::StepMotor::step()
 {//BEGIN_139a1c7a4966eeccad82b1856e6ad1e1
     //step() - TODO
