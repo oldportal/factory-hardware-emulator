@@ -20,7 +20,6 @@ oldportal::fhe::network::ModbusNetworkController::ModbusNetworkController(std::w
     _application = application;
 
     _modbus_ctx = nullptr;
-    _modbus_mapping = nullptr;
     _query = nullptr;
     _socket = -1;
 
@@ -38,9 +37,6 @@ oldportal::fhe::network::ModbusNetworkController::~ModbusNetworkController()
         ::close(_socket);
         _socket = -1;
     }
-
-    if (_modbus_mapping != nullptr)
-        modbus_mapping_free(_modbus_mapping);
 
     if (_modbus_ctx != nullptr)
     {
@@ -60,10 +56,14 @@ void oldportal::fhe::network::ModbusNetworkController::close()
     }
 }//END_084e72aff6e40ff9eba26970b1bd916f
 
+modbus_t* oldportal::fhe::network::ModbusNetworkController::getModbusContext()
+{//BEGIN_c3936de45fe67828981a96162531f82b
+    return _modbus_ctx;
+}//END_c3936de45fe67828981a96162531f82b
+
 void oldportal::fhe::network::ModbusNetworkController::init()
 {//BEGIN_3b09a28375be1e7d2d8a78eaea0d11a9
     assert(_modbus_ctx == nullptr);
-    assert(_modbus_mapping == nullptr);
     assert(_query == nullptr);
 
     _modbus_ctx = modbus_new_tcp_pi("127.0.0.1", "1502");
@@ -80,13 +80,11 @@ void oldportal::fhe::network::ModbusNetworkController::init()
 
     //modbus_set_slave(_modbus_ctx, 1);
 
-    _modbus_mapping = modbus_mapping_new(500, 500, 500, 500);
 }//END_3b09a28375be1e7d2d8a78eaea0d11a9
 
 void oldportal::fhe::network::ModbusNetworkController::run()
 {//BEGIN_8e94675d1917f794cd825b81ee5da0b1
     assert(_modbus_ctx);
-    assert(_modbus_mapping);
     assert(_query);
     assert(_socket != -1);
     assert(!_run_thread_cycle_flag);

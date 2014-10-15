@@ -29,8 +29,15 @@ oldportal::fhe::hardware::mechatronics::StepMotor::~StepMotor()
 
 void oldportal::fhe::hardware::mechatronics::StepMotor::process_request(const uint8_t* request, const uint16_t length, const uint8_t slave_address, const uint8_t function, const modbus_t* modbus_ctx)
 {//BEGIN_5b55e939e368cf5f2f98e49c2e3d2cf6
+    assert (slave_address == MODBUS_BROADCAST_ADDRESS || slave_address == _modbus_address);
+
     //TODO: process_request() 
+
+    if (slave_address == MODBUS_BROADCAST_ADDRESS)
+        return;// no reply for request with MODBUS_BROADCAST_ADDRESS
+
     //modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
+
 }//END_5b55e939e368cf5f2f98e49c2e3d2cf6
 
 void oldportal::fhe::hardware::mechatronics::StepMotor::step()
