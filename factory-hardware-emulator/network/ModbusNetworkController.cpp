@@ -66,12 +66,17 @@ void oldportal::fhe::network::ModbusNetworkController::init()
     assert(_modbus_mapping == nullptr);
     assert(_query == nullptr);
 
-    _modbus_ctx = modbus_new_tcp("127.0.0.1", 1502);
+    _modbus_ctx = modbus_new_tcp_pi("127.0.0.1", "1502");
     modbus_set_debug(_modbus_ctx, TRUE);
 
     _query = (uint8_t*)malloc(MODBUS_TCP_MAX_ADU_LENGTH);
 
     _socket = modbus_tcp_pi_listen(_modbus_ctx, 1);
+    if (_socket == -1)
+    {
+        fprintf(stderr, "modbus_tcp_pi_listen error: %s\n", modbus_strerror(errno));
+        return;
+    }
 
     _modbus_mapping = modbus_mapping_new(500, 500, 500, 500);
 }//END_3b09a28375be1e7d2d8a78eaea0d11a9
@@ -81,10 +86,15 @@ void oldportal::fhe::network::ModbusNetworkController::run()
     assert(_modbus_ctx);
     assert(_modbus_mapping);
     assert(_query);
+    assert(_socket != -1);
     assert(!_run_thread_cycle_flag);
 
 
-    modbus_tcp_pi_accept(_modbus_ctx, &_socket);
+    if (modbus_tcp_pi_accept(_modbus_ctx, &_socket) == -1)
+    {
+        fprintf(stderr, "Receive request error: %s\n", modbus_strerror(errno));
+        return;
+    }
 
     _run_thread_cycle_flag = true;
     while (_run_thread_cycle_flag)
@@ -96,10 +106,13 @@ void oldportal::fhe::network::ModbusNetworkController::run()
         errno = 0;
 
         received_length = modbus_receive(_modbus_ctx, _query);
+
         if (received_length > 0) {
             //TODO: run() - process device address
             //uint8_t modbus_address = [];
             //TODO: run() - process request
+
+            fprintf(stdout, "Request received, length: %i\n", received_length);
 
             /* rc is the query size */
             modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
