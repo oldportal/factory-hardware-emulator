@@ -78,6 +78,8 @@ void oldportal::fhe::network::ModbusNetworkController::init()
         return;
     }
 
+    //modbus_set_slave(_modbus_ctx, 1);
+
     _modbus_mapping = modbus_mapping_new(500, 500, 500, 500);
 }//END_3b09a28375be1e7d2d8a78eaea0d11a9
 
@@ -108,14 +110,29 @@ void oldportal::fhe::network::ModbusNetworkController::run()
         received_length = modbus_receive(_modbus_ctx, _query);
 
         if (received_length > 0) {
-            //TODO: run() - process device address
-            //uint8_t modbus_address = [];
-            //TODO: run() - process request
-
             fprintf(stdout, "Request received, length: %i\n", received_length);
 
-            /* rc is the query size */
-            modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
+            // process device address
+
+            int offset = modbus_get_header_length(_modbus_ctx);
+            uint8_t slave_address = _query[offset - 1];
+            uint8_t function = _query[offset];
+            uint16_t address = (_query[offset + 1] << 8) + _query[offset + 2];
+
+            std::shared_ptr<oldportal::fhe::EmulatorApplication> application = _application.lock();
+
+            for (auto device : application->_devices)
+            {
+                assert(device);
+                if (slave_address == device->_modbus_address)
+                {
+                    // send request to device
+                    //TODO: send request to device
+                    break;
+                }
+            }
+
+            //modbus_reply(_modbus_ctx, _query, received_length, _modbus_mapping);
         } else if (received_length == -1) {
             /* Connection closed by the client or error */
             if (errno != 0)

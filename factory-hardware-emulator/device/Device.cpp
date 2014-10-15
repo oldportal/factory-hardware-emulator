@@ -16,7 +16,7 @@
 oldportal::fhe::device::Device::Device()
 
 {//BEGIN_ebc65e7e592a893e49073a2f6ff2b82f
-
+    _modbus_address = 1;
 }//END_ebc65e7e592a893e49073a2f6ff2b82f
 
 
