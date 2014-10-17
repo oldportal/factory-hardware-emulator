@@ -28,6 +28,36 @@ struct StepMotorDriverData
 
 // members:
 
+/**
+rotor angle speed in steps per second
+*/
+public:
+int16_t _1_rotor_angle_speed;
+/**
+rotor angle acceleration in steps per second
+*/
+public:
+int16_t _2_rotor_angle_acceleration;
+/**
+rotor calculated (planned for execution) current angle speed in steps per second
+*/
+public:
+int16_t _4_rotor_planned_angle_speed;
+/**
+rotor calculated (planned for execution) current torque. 
+
+Not applicable for step motors.
+*/
+public:
+int16_t _5_rotor_planned_angle_torque;
+public:
+int16_t _6_motor_temperature;
+/**
+rotor angle position in steps
+*/
+public:
+int32_t _3_rotor_absolute_angle_position;
+
 
 //methods:
 
