@@ -89,9 +89,19 @@ class HardwareDevice;
 namespace mechatronics 
 {
 class StepMotor;
+struct StepMotorModbus;
 class StepMotorSettings;
 
 }// namespace mechatronics
+namespace modbus 
+{
+struct ControllerData;
+struct StepMotorDriverCalculationConstants;
+struct StepMotorDriverData;
+struct StepMotorDriverDataInput;
+class SystemLogReport;
+
+}// namespace modbus
 }// namespace hardware
 namespace network 
 {
@@ -116,6 +126,12 @@ class ModbusNetworkController;
 #include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/mechatronics/StepMotor.h"
+#include "hardware/modbus/SystemLogReport.h"
+#include "hardware/modbus/StepMotorDriverDataInput.h"
+#include "hardware/modbus/StepMotorDriverData.h"
+#include "hardware/modbus/StepMotorDriverCalculationConstants.h"
+#include "hardware/modbus/ControllerData.h"
+#include "hardware/mechatronics/StepMotorModbus.h"
 #include "network/ModbusNetworkController.h"
 
 
@@ -152,6 +168,12 @@ namespace fhe
 #include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/mechatronics/StepMotor.h"
+#include "hardware/modbus/SystemLogReport.h"
+#include "hardware/modbus/StepMotorDriverDataInput.h"
+#include "hardware/modbus/StepMotorDriverData.h"
+#include "hardware/modbus/StepMotorDriverCalculationConstants.h"
+#include "hardware/modbus/ControllerData.h"
+#include "hardware/mechatronics/StepMotorModbus.h"
 #include "network/ModbusNetworkController.h"
 
 

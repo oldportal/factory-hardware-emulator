@@ -1,0 +1,25 @@
+
+
+
+//BEGIN_USER_SECTION_BEFORE_MASTER_INCLUDE
+
+//END_USER_SECTION_BEFORE_MASTER_INCLUDE
+
+
+#include "../../factory-hardware-emulator.h"
+
+//BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
+
+//END_USER_SECTION_AFTER_MASTER_INCLUDE
+
+
+oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::StepMotorDriverCalculationConstants()
+
+{//BEGIN_eef07339a017f0365a00c69016a179b9
+
+}//END_eef07339a017f0365a00c69016a179b9
+
+
+//BEGIN_USER_SECTION_AFTER_GENERATED_CODE
+
+//END_USER_SECTION_AFTER_GENERATED_CODE

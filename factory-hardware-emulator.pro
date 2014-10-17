@@ -32,7 +32,15 @@ SOURCES += main.cpp \
     factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp \
     factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp \
     factory-hardware-emulator/hardware/HardwareDevice.cpp \
-    factory-hardware-emulator/hardware/mechatronics/StepMotorSettings.cpp
+    factory-hardware-emulator/hardware/mechatronics/StepMotorSettings.cpp \
+    factory-hardware-emulator/hardware/modbus/_group_modbus.cpp \
+    factory-hardware-emulator/hardware/modbus/ControllerData.cpp \
+    factory-hardware-emulator/hardware/modbus/StepMotorDriverCalculationConstants.cpp \
+    factory-hardware-emulator/hardware/modbus/StepMotorDriverData.cpp \
+    factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.cpp \
+    factory-hardware-emulator/hardware/modbus/SystemLog.cpp \
+    factory-hardware-emulator/hardware/modbus/SystemLogReport.cpp \
+    factory-hardware-emulator/hardware/mechatronics/StepMotorModbus.cpp
 
 HEADERS += \
     factory-hardware-emulator/factory-hardware-emulator.h
