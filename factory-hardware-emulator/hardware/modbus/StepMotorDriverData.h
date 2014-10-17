@@ -1,6 +1,6 @@
 
-#ifndef H_94c3b71621b13a1e272ce34e9f30f179_H
-#define H_94c3b71621b13a1e272ce34e9f30f179_H
+#ifndef H_063839c22290f04afd5dd6e798f8c8f0_H
+#define H_063839c22290f04afd5dd6e798f8c8f0_H
 
 
 
@@ -10,7 +10,7 @@
 
 
 /**
-
+Data for servo driver state and control throught Modbus holding registers
 */
 namespace oldportal 
 {
@@ -24,39 +24,73 @@ namespace modbus
 struct StepMotorDriverData
 {
 // constructors:
+public:
+StepMotorDriverData();
 
 
 // members:
 
 /**
-rotor angle speed in steps per second
+Make direct step (if value = +1 or -1) and set value to 0
 */
 public:
-int16_t _1_rotor_angle_speed;
+int16_t _10_rotor_angle_direct_step;
 /**
-rotor angle acceleration in steps per second
+Maximum allowed motor temperature (in Celsius)
 */
 public:
-int16_t _2_rotor_angle_acceleration;
+int16_t _11_motor_maximum_allowed_temperature;
 /**
-rotor calculated (planned for execution) current angle speed in steps per second
+Maximum allowed motor total current in milliamperes
 */
 public:
-int16_t _4_rotor_planned_angle_speed;
+int16_t _12_motor_maximum_allowed_current;
 /**
-rotor calculated (planned for execution) current torque. 
-
-Not applicable for step motors.
+Maximum allowed rotor angle speed in steps per second
 */
 public:
-int16_t _5_rotor_planned_angle_torque;
+int16_t _13_motor_maximum_allowed_angle_speed;
 public:
-int16_t _6_motor_temperature;
+int16_t _4_rotor_angle_start_speed;
+public:
+int16_t _6_rotor_angle_acceleration_speed;
 /**
-rotor angle position in steps
+End continuous speed in acceleration mode and continuous speed in continuous speed mode in steps per second
 */
 public:
-int32_t _3_rotor_absolute_angle_position;
+int16_t _7_rotor_angle_end_continuous_speed;
+public:
+int16_t _9_rotor_angle_force;
+/**
+acceleration start time (System Time)
+*/
+public:
+int32_t _5_rotor_angle_start_speed_time;
+/**
+Absolute angle stop position
+*/
+public:
+int32_t _8_rotor_angle_stop_position;
+/**
+Step motor microstep scaler, 1 = full step, 2 = halfstep, 4 = 1/4 step
+*/
+public:
+uint16_t _14_motor_step_scale;
+/**
+Motor control driver mode
+*/
+public:
+uint16_t _1_mode;
+/**
+Hardware error code
+*/
+public:
+uint16_t _2_hardware_error_code;
+/**
+Binary flags, also called "coils"
+*/
+public:
+uint16_t _3_flags;
 
 
 //methods:
@@ -85,11 +119,11 @@ int32_t _3_rotor_absolute_angle_position;
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_94c3b71621b13a1e272ce34e9f30f179_H
+#endif // H_063839c22290f04afd5dd6e798f8c8f0_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_94c3b71621b13a1e272ce34e9f30f179_INLINES_H
-#define H_94c3b71621b13a1e272ce34e9f30f179_INLINES_H
+#ifndef H_063839c22290f04afd5dd6e798f8c8f0_INLINES_H
+#define H_063839c22290f04afd5dd6e798f8c8f0_INLINES_H
 
-#endif // H_94c3b71621b13a1e272ce34e9f30f179_INLINES_H
+#endif // H_063839c22290f04afd5dd6e798f8c8f0_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

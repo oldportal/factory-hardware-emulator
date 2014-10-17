@@ -13,6 +13,13 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fhe::hardware::modbus::StepMotorDriverDataInput::StepMotorDriverDataInput()
+
+{//BEGIN_a1afeeb2e093e84ba19a306c8c96f1f1
+
+}//END_a1afeeb2e093e84ba19a306c8c96f1f1
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
