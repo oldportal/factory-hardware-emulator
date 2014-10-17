@@ -36,20 +36,20 @@ Step is calculation unit of angle measure
 public:
 uint16_t _1_steps_per_revolution;
 /**
-skolzenie (ENABLE_AC_INDUCTION_SIMPLE)
+Rotor Inertia in rotor speed change (in steps per seconds) per torque unit
 */
 public:
-uint16_t _default_s_in_angle_steps;
+uint16_t _2_rotor_intertia;
 /**
 Moment elasticity - speed acceleration for angle error fix, in 0.1 % of speed error.
 */
 public:
-uint16_t _moment_elasticity;
+uint16_t _3_moment_elasticity;
 /**
-Rotor Inertia in rotor speed change (in steps per seconds) per torque unit
+skolzenie (ENABLE_AC_INDUCTION_SIMPLE)
 */
 public:
-uint16_t _rotor_intertia;
+uint16_t _4_default_s_in_angle_steps;
 
 
 //methods:
