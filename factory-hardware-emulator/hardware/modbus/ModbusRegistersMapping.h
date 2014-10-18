@@ -30,11 +30,19 @@ ModbusRegistersMapping();
 
 // members:
 
+/**
+Registers count for save structure (structure size in array of registers).
+*/
+protected:
+uint8_t _modbus_registers_sizeof;
 public:
 uint16_t _modbus_registers_start_index;
 
 
 //methods:
+
+public:
+uint8_t getModbusRegistersSizeof();
 
 public:
 virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping) = 0;
