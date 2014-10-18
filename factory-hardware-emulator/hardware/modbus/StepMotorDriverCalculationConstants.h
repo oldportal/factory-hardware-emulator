@@ -22,6 +22,7 @@ namespace modbus
 {
 
 struct StepMotorDriverCalculationConstants
+:  public virtual oldportal::fhe::hardware::modbus::ModbusRegistersMapping
 {
 // constructors:
 public:
@@ -53,6 +54,13 @@ uint16_t _4_default_s_in_angle_steps;
 
 
 //methods:
+
+public:
+virtual void loadFromRegisterArray();
+
+public:
+virtual void saveToRegisterArray();
+
 
 
 //child groups:

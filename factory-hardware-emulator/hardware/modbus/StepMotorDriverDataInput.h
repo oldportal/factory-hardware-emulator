@@ -22,6 +22,7 @@ namespace modbus
 {
 
 struct StepMotorDriverDataInput
+:  public virtual oldportal::fhe::hardware::modbus::ModbusRegistersMapping
 {
 // constructors:
 public:
@@ -62,6 +63,13 @@ int32_t _3_rotor_absolute_angle_position;
 
 
 //methods:
+
+public:
+virtual void loadFromRegisterArray();
+
+public:
+virtual void saveToRegisterArray();
+
 
 
 //child groups:

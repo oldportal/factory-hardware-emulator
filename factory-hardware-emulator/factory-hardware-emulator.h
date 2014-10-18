@@ -108,6 +108,7 @@ class StepMotorSettings;
 namespace modbus 
 {
 struct ControllerData;
+class ModbusRegistersMapping;
 struct StepMotorDriverCalculationConstants;
 struct StepMotorDriverData;
 struct StepMotorDriverDataInput;
@@ -138,6 +139,7 @@ class ModbusNetworkController;
 #include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/mechatronics/StepMotor.h"
+#include "hardware/modbus/ModbusRegistersMapping.h"
 #include "hardware/modbus/SystemLogReport.h"
 #include "hardware/modbus/StepMotorDriverDataInput.h"
 #include "hardware/modbus/StepMotorDriverData.h"
@@ -180,6 +182,7 @@ namespace fhe
 #include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/mechatronics/StepMotor.h"
+#include "hardware/modbus/ModbusRegistersMapping.h"
 #include "hardware/modbus/SystemLogReport.h"
 #include "hardware/modbus/StepMotorDriverDataInput.h"
 #include "hardware/modbus/StepMotorDriverData.h"

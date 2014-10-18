@@ -39,7 +39,8 @@ SOURCES += main.cpp \
     factory-hardware-emulator/hardware/modbus/StepMotorDriverData.cpp \
     factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.cpp \
     factory-hardware-emulator/hardware/modbus/SystemLogReport.cpp \
-    factory-hardware-emulator/hardware/mechatronics/StepMotorModbus.cpp
+    factory-hardware-emulator/hardware/mechatronics/StepMotorModbus.cpp \
+    factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.cpp
 
 HEADERS += \
     factory-hardware-emulator/factory-hardware-emulator.h

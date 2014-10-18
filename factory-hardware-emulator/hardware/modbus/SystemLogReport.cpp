@@ -23,6 +23,17 @@ oldportal::fhe::hardware::modbus::SystemLogReport::SystemLogReport()
 }//END_7f48829dfedcb1bc21e01d5d0d1ff202
 
 
+void oldportal::fhe::hardware::modbus::SystemLogReport::loadFromRegisterArray()
+{//BEGIN_cc435641b382d0ef6f4f5229fbc5c902
+    //TODO: loadFromRegisters()
+}//END_cc435641b382d0ef6f4f5229fbc5c902
+
+void oldportal::fhe::hardware::modbus::SystemLogReport::saveToRegisterArray()
+{//BEGIN_8b8c2a35a837a255fc41256995098aba
+    //TODO: loadFromRegisters()
+}//END_8b8c2a35a837a255fc41256995098aba
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
