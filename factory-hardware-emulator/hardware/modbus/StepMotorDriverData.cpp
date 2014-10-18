@@ -16,8 +16,8 @@
 oldportal::fhe::hardware::modbus::StepMotorDriverData::StepMotorDriverData()
 
 {//BEGIN_de9444a76e37e556b9eff135b680bec9
-    //_1_mode = DRIVER_SERVO_IDLE;
-    //_2_hardware_error_code = DRIVER_HARDWARE_NO_ERRORS;
+    _1_mode = DRIVER_SERVO_IDLE;
+    _2_hardware_error_code = DRIVER_HARDWARE_NO_ERRORS;
 
     _3_flags = 0;
     _4_rotor_angle_start_speed = 0;
