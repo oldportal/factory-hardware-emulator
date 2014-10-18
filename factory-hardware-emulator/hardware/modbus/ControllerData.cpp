@@ -16,7 +16,13 @@
 oldportal::fhe::hardware::modbus::ControllerData::ControllerData()
 
 {//BEGIN_a96f949964f66617b8d302209eb52e51
-
+    _1_mode = CTRLR_MODE_IDLE;
+    _2_error_code = CTRLR_NO_ERRORS;
+    _7_maximum_radiator_temperature = DEFAULT_MAXIMUM_RADIATOR_TEMPERATURE;
+    _6_radiator_temperature = DEFAULT_RADIATOR_TEMPERATURE;
+    _3_device_time = 0;
+    _4_network_time_shift = 0;
+    _5_maximum_system_step_timeout = 0;
 }//END_a96f949964f66617b8d302209eb52e51
 
 
