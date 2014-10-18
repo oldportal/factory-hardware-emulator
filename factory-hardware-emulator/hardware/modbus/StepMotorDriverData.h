@@ -32,7 +32,7 @@ typedef enum
 
 
 /**
-Data for servo driver state and control throught Modbus holding registers
+ Plan angle speed overspeed maximum motor speed 
 */
 namespace oldportal 
 {
