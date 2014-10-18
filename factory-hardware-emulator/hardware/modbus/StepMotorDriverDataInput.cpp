@@ -20,7 +20,11 @@ oldportal::fhe::hardware::modbus::StepMotorDriverDataInput::StepMotorDriverDataI
     _modbus_registers_sizeof = 7;
 
     // default values
+    _1_rotor_angle_speed = 0;
+    _2_rotor_angle_acceleration = 0;
+    _3_rotor_absolute_angle_position = 0;
     _4_rotor_planned_angle_speed = 0;
+    _5_rotor_planned_angle_torque = 0;
     _6_motor_temperature = DEFAULT_MOTOR_TEMPERATURE;
 }//END_a1afeeb2e093e84ba19a306c8c96f1f1
 
