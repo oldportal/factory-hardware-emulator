@@ -23,14 +23,33 @@ oldportal::fhe::hardware::modbus::SystemLogReport::SystemLogReport()
 }//END_7f48829dfedcb1bc21e01d5d0d1ff202
 
 
-void oldportal::fhe::hardware::modbus::SystemLogReport::loadFromRegisterArray()
+void oldportal::fhe::hardware::modbus::SystemLogReport::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_cc435641b382d0ef6f4f5229fbc5c902
-    //TODO: loadFromRegisters()
+    //TODO: check index range with TODO: modbus_mapping->nb_registers
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
+    _1_error_code = registers[0];
+    _2_count = registers[1];
+
+    uint32_t *time_register = (uint32_t *)(registers+2);
+    _3_last_time = *time_register;
+    _4_last_parameter = registers[4];
 }//END_cc435641b382d0ef6f4f5229fbc5c902
 
-void oldportal::fhe::hardware::modbus::SystemLogReport::saveToRegisterArray()
+void oldportal::fhe::hardware::modbus::SystemLogReport::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_8b8c2a35a837a255fc41256995098aba
-    //TODO: loadFromRegisters()
+    //TODO: check index range with TODO: modbus_mapping->nb_registers
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
+    registers[0] = _1_error_code;
+    registers[1] = _2_count;
+    uint32_t *time_register = (uint32_t *)(registers+2);
+    *time_register = _3_last_time;
+    registers[4] = _4_last_parameter;
 }//END_8b8c2a35a837a255fc41256995098aba
 
 

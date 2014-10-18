@@ -37,6 +37,8 @@ virtual ~StepMotor();
 public:
 long _current_position;
 public:
+oldportal::fhe::hardware::mechatronics::StepMotorModbus __modbus;
+public:
 oldportal::fhe::hardware::mechatronics::StepMotorSettings _settings;
 
 

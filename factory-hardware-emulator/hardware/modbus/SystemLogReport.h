@@ -56,10 +56,10 @@ uint32_t _3_last_time;
 //methods:
 
 public:
-virtual void loadFromRegisterArray();
+virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
 
 public:
-virtual void saveToRegisterArray();
+virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
 
 
 

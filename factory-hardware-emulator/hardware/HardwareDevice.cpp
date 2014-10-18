@@ -18,7 +18,7 @@ oldportal::fhe::hardware::HardwareDevice::HardwareDevice()
 {//BEGIN_1a4b1400bcfb2aebd9c4a2b219e725eb
     assert(_modbus_mapping == nullptr);
 
-    _modbus_mapping = modbus_mapping_new(500, 500, 500, 500);
+    _modbus_mapping = modbus_mapping_new(0, 0, MODBUS_MAX_READ_REGISTERS, MODBUS_MAX_RW_WRITE_REGISTERS);
 }//END_1a4b1400bcfb2aebd9c4a2b219e725eb
 
 
