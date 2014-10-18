@@ -28,12 +28,26 @@ oldportal::fhe::hardware::modbus::ControllerData::ControllerData()
 
 void oldportal::fhe::hardware::modbus::ControllerData::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_1cc172e4798745bc1f7894ac3683257d
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
     //TODO: loadFromRegisters()
 }//END_1cc172e4798745bc1f7894ac3683257d
 
 void oldportal::fhe::hardware::modbus::ControllerData::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_d18e7df10413c32d0e6e49b1a917b9fc
-    //TODO: loadFromRegisters()
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
+    //TODO: saveToRegisterArray()
 }//END_d18e7df10413c32d0e6e49b1a917b9fc
 
 

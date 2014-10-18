@@ -16,8 +16,10 @@
 oldportal::fhe::hardware::modbus::SystemLogReport::SystemLogReport()
 
 {//BEGIN_7f48829dfedcb1bc21e01d5d0d1ff202
+    // set structure sizeof
     _modbus_registers_sizeof = 5;
 
+    // default values
     _1_error_code = 0;
     _2_count = 0;
     _3_last_time = 0;
