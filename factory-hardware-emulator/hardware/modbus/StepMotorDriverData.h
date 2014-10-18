@@ -32,7 +32,7 @@ typedef enum
 
 
 /**
- Plan angle speed overspeed maximum motor speed
+ Plan angle speed overspeed maximum motor speed 
 */
 namespace oldportal 
 {
@@ -119,10 +119,10 @@ uint16_t _3_flags;
 //methods:
 
 public:
-virtual void loadFromRegisterArray();
+virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
 
 public:
-virtual void saveToRegisterArray();
+virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
 
 
 

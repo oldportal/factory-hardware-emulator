@@ -37,10 +37,10 @@ uint16_t _modbus_registers_start_index;
 //methods:
 
 public:
-virtual void loadFromRegisterArray() = 0;
+virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping) = 0;
 
 public:
-virtual void saveToRegisterArray() = 0;
+virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping) = 0;
 
 
 

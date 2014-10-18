@@ -46,10 +46,10 @@ oldportal::fhe::hardware::modbus::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE
 //methods:
 
 public:
-virtual void loadFromRegisterArray();
+virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
 
 public:
-virtual void saveToRegisterArray();
+virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
 
 
 

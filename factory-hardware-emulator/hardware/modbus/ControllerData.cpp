@@ -26,12 +26,12 @@ oldportal::fhe::hardware::modbus::ControllerData::ControllerData()
 }//END_a96f949964f66617b8d302209eb52e51
 
 
-void oldportal::fhe::hardware::modbus::ControllerData::loadFromRegisterArray()
+void oldportal::fhe::hardware::modbus::ControllerData::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_1cc172e4798745bc1f7894ac3683257d
     //TODO: loadFromRegisters()
 }//END_1cc172e4798745bc1f7894ac3683257d
 
-void oldportal::fhe::hardware::modbus::ControllerData::saveToRegisterArray()
+void oldportal::fhe::hardware::modbus::ControllerData::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_d18e7df10413c32d0e6e49b1a917b9fc
     //TODO: loadFromRegisters()
 }//END_d18e7df10413c32d0e6e49b1a917b9fc

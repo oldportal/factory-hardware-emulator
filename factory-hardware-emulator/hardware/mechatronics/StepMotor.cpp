@@ -31,6 +31,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::process_request(const ui
 {//BEGIN_5b55e939e368cf5f2f98e49c2e3d2cf6
     assert (slave_address == MODBUS_BROADCAST_ADDRESS || slave_address == _modbus_address);
 
+
     //TODO: process_request() 
 
     if (slave_address == MODBUS_BROADCAST_ADDRESS)

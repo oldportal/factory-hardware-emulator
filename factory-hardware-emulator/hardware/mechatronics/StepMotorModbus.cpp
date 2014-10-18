@@ -20,12 +20,12 @@ oldportal::fhe::hardware::mechatronics::StepMotorModbus::StepMotorModbus()
 }//END_6ca1ad45040297580b922c50c0922d36
 
 
-void oldportal::fhe::hardware::mechatronics::StepMotorModbus::loadFromRegisterArray()
+void oldportal::fhe::hardware::mechatronics::StepMotorModbus::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_78fc3366898319efcb31f2aa857f113b
     //TODO: loadFromRegisters()
 }//END_78fc3366898319efcb31f2aa857f113b
 
-void oldportal::fhe::hardware::mechatronics::StepMotorModbus::saveToRegisterArray()
+void oldportal::fhe::hardware::mechatronics::StepMotorModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_b71c476c1b34c76ccb5e14bfbb49777a
     //TODO: loadFromRegisters()
 }//END_b71c476c1b34c76ccb5e14bfbb49777a

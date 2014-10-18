@@ -22,12 +22,12 @@ oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::StepMotor
 }//END_eef07339a017f0365a00c69016a179b9
 
 
-void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::loadFromRegisterArray()
+void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_990bd8c1718409138c6c02fd22eaaf7b
     //TODO: loadFromRegisters()
 }//END_990bd8c1718409138c6c02fd22eaaf7b
 
-void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::saveToRegisterArray()
+void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_b2e111100e6ce5be449ca0c9b565d360
     //TODO: loadFromRegisters()
 }//END_b2e111100e6ce5be449ca0c9b565d360
