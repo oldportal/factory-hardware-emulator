@@ -16,7 +16,22 @@
 oldportal::fhe::hardware::modbus::StepMotorDriverData::StepMotorDriverData()
 
 {//BEGIN_de9444a76e37e556b9eff135b680bec9
+    //_1_mode = DRIVER_SERVO_IDLE;
+    //_2_hardware_error_code = DRIVER_HARDWARE_NO_ERRORS;
 
+    _3_flags = 0;
+    _4_rotor_angle_start_speed = 0;
+    //_5_rotor_angle_start_speed_time = GetSystemTime();
+    _6_rotor_angle_acceleration_speed = 0;
+    _7_rotor_angle_end_continuous_speed = 0;
+    _8_rotor_angle_stop_position = 0;
+    _9_rotor_angle_force = 0;
+    _10_rotor_angle_direct_step = 0;
+    _14_motor_step_scale = 1; // fullstep mode
+
+    _11_motor_maximum_allowed_temperature = DEFAULT_MAXIMUM_ALLOWED_MOTOR_TEMPERATURE;
+    _12_motor_maximum_allowed_current = DEFAULT_MAXIMUM_ALLOWED_MOTOR_CURRENT;
+    _13_motor_maximum_allowed_angle_speed = DEFAULT_MAXIMUM_ALLOWED_ANGLE_SPEED;
 }//END_de9444a76e37e556b9eff135b680bec9
 
 

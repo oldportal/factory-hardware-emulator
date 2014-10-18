@@ -13,6 +13,13 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fhe::hardware::modbus::SystemLogReport::SystemLogReport()
+
+{//BEGIN_7f48829dfedcb1bc21e01d5d0d1ff202
+
+}//END_7f48829dfedcb1bc21e01d5d0d1ff202
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
