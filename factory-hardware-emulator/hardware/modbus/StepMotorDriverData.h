@@ -32,7 +32,7 @@ typedef enum
 
 
 /**
- Plan angle speed overspeed maximum motor speed 
+ Plan angle speed overspeed maximum motor speed
 */
 namespace oldportal 
 {
@@ -44,6 +44,7 @@ namespace modbus
 {
 
 struct StepMotorDriverData
+:  public virtual oldportal::fhe::hardware::modbus::ModbusRegistersMapping
 {
 // constructors:
 public:
@@ -116,6 +117,13 @@ uint16_t _3_flags;
 
 
 //methods:
+
+public:
+virtual void loadFromRegisterArray();
+
+public:
+virtual void saveToRegisterArray();
+
 
 
 //child groups:

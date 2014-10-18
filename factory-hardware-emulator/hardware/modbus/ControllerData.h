@@ -49,6 +49,7 @@ namespace modbus
 {
 
 struct ControllerData
+:  public virtual oldportal::fhe::hardware::modbus::ModbusRegistersMapping
 {
 // constructors:
 public:
@@ -95,6 +96,13 @@ uint32_t _4_network_time_shift;
 
 
 //methods:
+
+public:
+virtual void loadFromRegisterArray();
+
+public:
+virtual void saveToRegisterArray();
+
 
 
 //child groups:

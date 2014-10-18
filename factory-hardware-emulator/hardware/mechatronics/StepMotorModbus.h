@@ -22,8 +22,11 @@ namespace mechatronics
 {
 
 struct StepMotorModbus
+:  public virtual oldportal::fhe::hardware::modbus::ModbusRegistersMapping
 {
 // constructors:
+public:
+StepMotorModbus();
 
 
 // members:
@@ -41,6 +44,13 @@ oldportal::fhe::hardware::modbus::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE
 
 
 //methods:
+
+public:
+virtual void loadFromRegisterArray();
+
+public:
+virtual void saveToRegisterArray();
+
 
 
 //child groups:

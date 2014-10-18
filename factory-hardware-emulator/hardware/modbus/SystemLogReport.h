@@ -22,6 +22,7 @@ namespace modbus
 {
 
 class SystemLogReport
+:  public virtual oldportal::fhe::hardware::modbus::ModbusRegistersMapping
 {
 // constructors:
 public:
@@ -53,6 +54,13 @@ uint32_t _3_last_time;
 
 
 //methods:
+
+public:
+virtual void loadFromRegisterArray();
+
+public:
+virtual void saveToRegisterArray();
+
 
 
 //child groups:
