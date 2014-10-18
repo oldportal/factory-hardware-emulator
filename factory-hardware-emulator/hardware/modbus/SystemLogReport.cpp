@@ -16,6 +16,8 @@
 oldportal::fhe::hardware::modbus::SystemLogReport::SystemLogReport()
 
 {//BEGIN_7f48829dfedcb1bc21e01d5d0d1ff202
+    _modbus_registers_sizeof = 5;
+
     _1_error_code = 0;
     _2_count = 0;
     _3_last_time = 0;
@@ -25,7 +27,9 @@ oldportal::fhe::hardware::modbus::SystemLogReport::SystemLogReport()
 
 void oldportal::fhe::hardware::modbus::SystemLogReport::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_cc435641b382d0ef6f4f5229fbc5c902
-    //TODO: check index range with TODO: modbus_mapping->nb_registers
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
 
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
@@ -40,7 +44,9 @@ void oldportal::fhe::hardware::modbus::SystemLogReport::loadFromRegisterArray(co
 
 void oldportal::fhe::hardware::modbus::SystemLogReport::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_8b8c2a35a837a255fc41256995098aba
-    //TODO: check index range with TODO: modbus_mapping->nb_registers
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
 
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
