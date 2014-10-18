@@ -22,12 +22,26 @@ oldportal::fhe::hardware::mechatronics::StepMotorModbus::StepMotorModbus()
 
 void oldportal::fhe::hardware::mechatronics::StepMotorModbus::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_78fc3366898319efcb31f2aa857f113b
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
     //TODO: loadFromRegisters()
 }//END_78fc3366898319efcb31f2aa857f113b
 
 void oldportal::fhe::hardware::mechatronics::StepMotorModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_b71c476c1b34c76ccb5e14bfbb49777a
-    //TODO: loadFromRegisters()
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
+    //TODO: saveToRegisterArray()
 }//END_b71c476c1b34c76ccb5e14bfbb49777a
 
 

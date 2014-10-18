@@ -24,12 +24,26 @@ oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::StepMotor
 
 void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_990bd8c1718409138c6c02fd22eaaf7b
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
     //TODO: loadFromRegisters()
 }//END_990bd8c1718409138c6c02fd22eaaf7b
 
 void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_b2e111100e6ce5be449ca0c9b565d360
-    //TODO: loadFromRegisters()
+    // check index range with modbus_mapping->nb_registers:
+    assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
+    assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
+
+    uint16_t *registers = modbus_mapping->tab_registers;
+    registers += _modbus_registers_start_index;
+
+    //TODO: saveToRegisterArray()
 }//END_b2e111100e6ce5be449ca0c9b565d360
 
 
