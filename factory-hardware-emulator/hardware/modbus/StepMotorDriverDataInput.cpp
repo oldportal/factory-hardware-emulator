@@ -16,7 +16,8 @@
 oldportal::fhe::hardware::modbus::StepMotorDriverDataInput::StepMotorDriverDataInput()
 
 {//BEGIN_a1afeeb2e093e84ba19a306c8c96f1f1
-
+    _4_rotor_planned_angle_speed = 0;
+    _6_motor_temperature = DEFAULT_MOTOR_TEMPERATURE;
 }//END_a1afeeb2e093e84ba19a306c8c96f1f1
 
 

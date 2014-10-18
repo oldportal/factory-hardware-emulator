@@ -24,6 +24,8 @@ namespace modbus
 class SystemLogReport
 {
 // constructors:
+public:
+SystemLogReport();
 
 
 // members:
