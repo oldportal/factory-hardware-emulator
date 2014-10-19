@@ -119,6 +119,7 @@ class SystemLogReport;
 namespace network 
 {
 class ModbusNetworkController;
+struct NetworkClock;
 
 }// namespace network
 }// namespace fhe
@@ -134,6 +135,7 @@ class ModbusNetworkController;
 #include "device/_group_device.h"
 #include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
+#include "network/NetworkClock.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
@@ -177,6 +179,7 @@ namespace fhe
 #include "device/_group_device.h"
 #include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
+#include "network/NetworkClock.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
