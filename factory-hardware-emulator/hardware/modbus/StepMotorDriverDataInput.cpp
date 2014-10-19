@@ -40,6 +40,7 @@ void oldportal::fhe::hardware::modbus::StepMotorDriverDataInput::loadFromRegiste
 
     int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
 
+    // variables
     _1_rotor_angle_speed = registers_i16[0];
     _2_rotor_angle_acceleration = registers_i16[1];
 
@@ -62,6 +63,7 @@ void oldportal::fhe::hardware::modbus::StepMotorDriverDataInput::saveToRegisterA
 
     int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
 
+    // variables
     registers_i16[0] = _1_rotor_angle_speed;
     registers_i16[1] = _2_rotor_angle_acceleration;
 

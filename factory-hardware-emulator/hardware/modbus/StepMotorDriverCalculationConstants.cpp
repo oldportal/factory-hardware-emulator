@@ -19,6 +19,7 @@ oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::StepMotor
     _1_steps_per_revolution = 200;
     _2_rotor_intertia = 100;
     _3_moment_elasticity = 1000;
+    _4_default_s_in_angle_steps = 0;
 }//END_eef07339a017f0365a00c69016a179b9
 
 
@@ -31,7 +32,11 @@ void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::load
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    //TODO: loadFromRegisters()
+    // variables
+    _1_steps_per_revolution = registers[0];
+    _2_rotor_intertia = registers[1];
+    _3_moment_elasticity = registers[2];
+    _4_default_s_in_angle_steps = registers[3];
 }//END_990bd8c1718409138c6c02fd22eaaf7b
 
 void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
@@ -43,7 +48,11 @@ void oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::save
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    //TODO: saveToRegisterArray()
+    // variables
+    registers[0] = _1_steps_per_revolution;
+    registers[1] = _2_rotor_intertia;
+    registers[2] = _3_moment_elasticity;
+    registers[3] = _4_default_s_in_angle_steps;
 }//END_b2e111100e6ce5be449ca0c9b565d360
 
 

@@ -35,7 +35,21 @@ void oldportal::fhe::hardware::modbus::ControllerData::loadFromRegisterArray(con
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    //TODO: loadFromRegisters()
+    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+
+    // variables
+    _1_mode = registers[0];
+    _2_error_code = registers[1];
+
+    uint32_t *device_time_register = (uint32_t *)(registers+2);
+    _3_device_time = *device_time_register;
+
+    uint32_t *network_time_shift_register = (uint32_t *)(registers+4);
+    _4_network_time_shift = *network_time_shift_register;
+
+    _5_maximum_system_step_timeout = registers[6];
+    _6_radiator_temperature = registers_i16[7];
+    _7_maximum_radiator_temperature = registers_i16[8];
 }//END_1cc172e4798745bc1f7894ac3683257d
 
 void oldportal::fhe::hardware::modbus::ControllerData::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
@@ -47,7 +61,21 @@ void oldportal::fhe::hardware::modbus::ControllerData::saveToRegisterArray(const
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    //TODO: saveToRegisterArray()
+    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+
+    // variables
+    registers[0] = _1_mode;
+    registers[1] = _2_error_code;
+
+    uint32_t *device_time_register = (uint32_t *)(registers+2);
+    *device_time_register = _3_device_time;
+
+    uint32_t *network_time_shift_register = (uint32_t *)(registers+4);
+    *network_time_shift_register = _4_network_time_shift;
+
+    registers[6] = _5_maximum_system_step_timeout;
+    registers_i16[7] = _6_radiator_temperature;
+    registers_i16[8] = _7_maximum_radiator_temperature;
 }//END_d18e7df10413c32d0e6e49b1a917b9fc
 
 
