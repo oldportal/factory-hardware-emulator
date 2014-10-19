@@ -16,6 +16,10 @@
 oldportal::fhe::hardware::modbus::StepMotorDriverData::StepMotorDriverData()
 
 {//BEGIN_de9444a76e37e556b9eff135b680bec9
+    // set structure sizeof
+    _modbus_registers_sizeof = 15;
+
+    // default values
     _1_mode = DRIVER_SERVO_IDLE;
     _2_hardware_error_code = DRIVER_HARDWARE_NO_ERRORS;
 

@@ -16,6 +16,10 @@
 oldportal::fhe::hardware::modbus::ControllerData::ControllerData()
 
 {//BEGIN_a96f949964f66617b8d302209eb52e51
+    // set structure sizeof
+    _modbus_registers_sizeof = 9;
+
+    // default values
     _1_mode = CTRLR_MODE_IDLE;
     _2_error_code = CTRLR_NO_ERRORS;
     _7_maximum_radiator_temperature = DEFAULT_MAXIMUM_RADIATOR_TEMPERATURE;
