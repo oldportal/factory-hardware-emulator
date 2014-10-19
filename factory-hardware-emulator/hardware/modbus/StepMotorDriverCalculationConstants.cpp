@@ -16,6 +16,10 @@
 oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants::StepMotorDriverCalculationConstants()
 
 {//BEGIN_eef07339a017f0365a00c69016a179b9
+    // set structure sizeof
+    _modbus_registers_sizeof = 4;
+
+    // default values
     _1_steps_per_revolution = 200;
     _2_rotor_intertia = 100;
     _3_moment_elasticity = 1000;
