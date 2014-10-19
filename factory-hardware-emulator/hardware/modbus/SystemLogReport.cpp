@@ -36,6 +36,7 @@ void oldportal::fhe::hardware::modbus::SystemLogReport::loadFromRegisterArray(co
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
+    // variables
     _1_error_code = registers[0];
     _2_count = registers[1];
 
@@ -53,6 +54,7 @@ void oldportal::fhe::hardware::modbus::SystemLogReport::saveToRegisterArray(cons
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
+    // variables
     registers[0] = _1_error_code;
     registers[1] = _2_count;
     uint32_t *time_register = (uint32_t *)(registers+2);
