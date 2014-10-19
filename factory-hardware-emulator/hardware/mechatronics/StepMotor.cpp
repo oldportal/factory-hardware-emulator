@@ -41,7 +41,9 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::process_request(const ui
     // modbus_reply_exception(ctx, query, MODBUS_EXCEPTION_SLAVE_OR_SERVER_BUSY);
 
     // default reply handler
-    modbus_reply(modbus_ctx, request, request_length, _modbus_mapping);
+    int result = modbus_reply(modbus_ctx, request, request_length, _modbus_mapping);
+    if (result == -1)
+        fprintf(stderr, "StepMotor::process_request() modbus_reply() error: %s\n", modbus_strerror(errno));
 
     // update structures from registers in modbus mapping
     _modbus.loadFromRegisterArray(_modbus_mapping);

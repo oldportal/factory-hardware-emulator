@@ -44,6 +44,8 @@ void oldportal::fhe::hardware::modbus::StepMotorDriverData::loadFromRegisterArra
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
+    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+
     //TODO: loadFromRegisters()
 }//END_d4e63daee7f8943d338b9b6e20d35684
 
@@ -55,6 +57,9 @@ void oldportal::fhe::hardware::modbus::StepMotorDriverData::saveToRegisterArray(
 
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
+
+    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+
 
     //TODO: saveToRegisterArray()
 }//END_748e9c79982a59569b95107c91f80e79
