@@ -37,6 +37,9 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::process_request(const ui
     //if (slave_address == MODBUS_BROADCAST_ADDRESS)
     //    return;// no reply for request with MODBUS_BROADCAST_ADDRESS
 
+    // uint16_t value = MODBUS_GET_INT16_FROM_INT8(query, header_length + 1);
+    // modbus_reply_exception(ctx, query, MODBUS_EXCEPTION_SLAVE_OR_SERVER_BUSY);
+
     // default reply handler
     modbus_reply(modbus_ctx, request, request_length, _modbus_mapping);
 
