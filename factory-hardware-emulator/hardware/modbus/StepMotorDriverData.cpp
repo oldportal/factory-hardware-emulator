@@ -25,7 +25,7 @@ oldportal::fhe::hardware::modbus::StepMotorDriverData::StepMotorDriverData()
 
     _3_flags = 0;
     _4_rotor_angle_start_speed = 0;
-    //_5_rotor_angle_start_speed_time = GetSystemTime();
+    _5_rotor_angle_start_speed_time = 0;
     _6_rotor_angle_acceleration_speed = 0;
     _7_rotor_angle_end_continuous_speed = 0;
     _8_rotor_angle_stop_position = 0;
