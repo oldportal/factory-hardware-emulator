@@ -64,6 +64,11 @@ Driver cooling radiator temperature (in Celsius)
 public:
 int16_t _6_radiator_temperature;
 /**
+Maximum allowed radiator temperature (in Celsius)
+*/
+public:
+int16_t _7_maximum_radiator_temperature;
+/**
 Controller mode
 */
 public:
@@ -78,11 +83,6 @@ Maximum system step timeout, in milliseconds. The parameter for monitoring for l
 */
 public:
 uint16_t _5_maximum_system_step_timeout;
-/**
-Maximum allowed radiator temperature (in Celsius)
-*/
-public:
-uint16_t _7_maximum_radiator_temperature;
 /**
 Current device time (millisecond resolution) = uptime
 */

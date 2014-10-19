@@ -29,6 +29,8 @@ virtual ~EmulatorApplication();
 
 // members:
 
+protected:
+oldportal::fhe::network::NetworkClock _device_time;
 public:
 std::shared_ptr< oldportal::fhe::network::ModbusNetworkController > _network;
 public:
@@ -36,6 +38,10 @@ std::vector< std::shared_ptr< oldportal::fhe::device::Device > > _devices;
 
 
 //methods:
+
+public:
+NETWORK_TIME getDeviceTime();
+
 
 
 //child groups:
