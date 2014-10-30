@@ -34,6 +34,8 @@ StepMotorModbus();
 public:
 oldportal::fhe::hardware::modbus::ControllerData _controllerData;
 public:
+oldportal::fhe::hardware::modbus::InterfaceSettings _1_interface;
+public:
 oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants _driverCalculationConstants;
 public:
 oldportal::fhe::hardware::modbus::StepMotorDriverData _driverDataInput;

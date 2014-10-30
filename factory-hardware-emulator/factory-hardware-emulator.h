@@ -113,6 +113,7 @@ struct StepMotorDriverCalculationConstants;
 struct StepMotorDriverData;
 struct StepMotorDriverDataInput;
 class SystemLogReport;
+class InterfaceSettings;
 
 }// namespace modbus
 }// namespace hardware
@@ -142,6 +143,7 @@ struct NetworkClock;
 #include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/modbus/ModbusRegistersMapping.h"
 #include "hardware/modbus/ControllerData.h"
+#include "hardware/modbus/InterfaceSettings.h"
 #include "hardware/modbus/StepMotorDriverCalculationConstants.h"
 #include "hardware/modbus/StepMotorDriverData.h"
 #include "hardware/modbus/StepMotorDriverDataInput.h"
@@ -186,6 +188,7 @@ namespace fhe
 #include "hardware/mechatronics/StepMotorSettings.h"
 #include "hardware/modbus/ModbusRegistersMapping.h"
 #include "hardware/modbus/ControllerData.h"
+#include "hardware/modbus/InterfaceSettings.h"
 #include "hardware/modbus/StepMotorDriverCalculationConstants.h"
 #include "hardware/modbus/StepMotorDriverData.h"
 #include "hardware/modbus/StepMotorDriverDataInput.h"

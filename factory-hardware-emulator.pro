@@ -41,7 +41,8 @@ SOURCES += main.cpp \
     factory-hardware-emulator/hardware/modbus/SystemLogReport.cpp \
     factory-hardware-emulator/hardware/mechatronics/StepMotorModbus.cpp \
     factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.cpp \
-    factory-hardware-emulator/network/NetworkClock.cpp
+    factory-hardware-emulator/network/NetworkClock.cpp \
+    factory-hardware-emulator/hardware/modbus/InterfaceSettings.cpp
 
 HEADERS += \
     factory-hardware-emulator/factory-hardware-emulator.h
