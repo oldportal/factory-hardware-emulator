@@ -51,7 +51,55 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::process_request(const ui
 
 void oldportal::fhe::hardware::mechatronics::StepMotor::step()
 {//BEGIN_139a1c7a4966eeccad82b1856e6ad1e1
-    //step() - TODO
+    // update controller data
+    //if (_modbus._controllerData._1_mode == 0)
+
+    //TODO: update _controllerData
+
+    //TODO: update device time
+
+
+    // update motor state
+    if ((_modbus._controllerData._1_mode == CTRLR_MODE_DIRECT_CONTROL || _modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW) && _modbus._driverData._1_mode != DRIVER_SERVO_IDLE)
+    {
+        if (_modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW)
+        {
+            //TODO: check time and update current command status
+        }
+
+        // resolve current state
+
+        if (_modbus._driverData._1_mode == DRIVER_SERVO_KEEP_POSITION)
+        {
+            //TODO: update motor position
+        }
+        else if (_modbus._driverData._1_mode == DRIVER_SERVO_CONTINUOUS_SPEED)
+        {
+            //TODO: update motor position
+        }
+        else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION)
+        {
+            //TODO: update motor position
+        }
+        else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION_TO_END_SPEED)
+        {
+            //TODO: update motor position
+        }
+        else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_TO_END_POSITION)
+        {
+            //TODO: update motor position
+        }
+        else if (_modbus._driverData._1_mode == DRIVER_SERVO_CONTINUOUS_FORCE)
+        {
+            //TODO: update motor position
+        }
+        else if (_modbus._driverData._1_mode == DRIVER_STEP_DIRECT)
+        {
+            //TODO: update motor position
+        }
+    }
+
+
 }//END_139a1c7a4966eeccad82b1856e6ad1e1
 
 
