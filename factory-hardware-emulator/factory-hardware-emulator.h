@@ -108,12 +108,12 @@ class StepMotorSettings;
 namespace modbus 
 {
 struct ControllerData;
+class InterfaceSettings;
 class ModbusRegistersMapping;
 struct StepMotorDriverCalculationConstants;
 struct StepMotorDriverData;
 struct StepMotorDriverDataInput;
 class SystemLogReport;
-class InterfaceSettings;
 
 }// namespace modbus
 }// namespace hardware

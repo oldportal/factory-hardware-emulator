@@ -38,9 +38,9 @@ oldportal::fhe::hardware::modbus::InterfaceSettings _1_interface;
 public:
 oldportal::fhe::hardware::modbus::StepMotorDriverCalculationConstants _driverCalculationConstants;
 public:
-oldportal::fhe::hardware::modbus::StepMotorDriverData _driverDataInput;
+oldportal::fhe::hardware::modbus::StepMotorDriverData _driverData;
 public:
-oldportal::fhe::hardware::modbus::StepMotorDriverDataInput _driverData;
+oldportal::fhe::hardware::modbus::StepMotorDriverDataInput _driverDataInput;
 public:
 oldportal::fhe::hardware::modbus::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE];
 
