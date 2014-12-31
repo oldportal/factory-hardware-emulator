@@ -71,18 +71,21 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
 
         if (_modbus._driverData._1_mode == DRIVER_SERVO_KEEP_POSITION)
         {
-            //TODO: update motor position
+            // same motor position
         }
         else if (_modbus._driverData._1_mode == DRIVER_SERVO_CONTINUOUS_SPEED)
         {
+            float angle_speed = _modbus._driverData._4_rotor_angle_start_speed;
             //TODO: update motor position
         }
         else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION)
         {
+            float angle_speed = _modbus._driverData._4_rotor_angle_start_speed;
             //TODO: update motor position
         }
         else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION_TO_END_SPEED)
         {
+            float angle_speed = _modbus._driverData._4_rotor_angle_start_speed;
             //TODO: update motor position
         }
         else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_TO_END_POSITION)
@@ -95,6 +98,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
         }
         else if (_modbus._driverData._1_mode == DRIVER_STEP_DIRECT)
         {
+            //_modbus._driverData._10_rotor_angle_direct_step
             //TODO: update motor position
         }
     }
