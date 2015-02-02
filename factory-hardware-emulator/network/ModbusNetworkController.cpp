@@ -139,6 +139,8 @@ void oldportal::fhe::network::ModbusNetworkController::run()
                 // out error description:
                 fprintf(stderr, "Receive request error: %s\n", modbus_strerror(errno));
             }
+
+            close();
             break;
         }
     }
