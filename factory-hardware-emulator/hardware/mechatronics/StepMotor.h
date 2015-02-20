@@ -34,6 +34,8 @@ virtual ~StepMotor();
 
 // members:
 
+protected:
+std::chrono::high_resolution_clock::time_point _currentStepStartTime;
 public:
 long _current_position;
 public:
@@ -53,6 +55,9 @@ void process_request(const uint8_t* request, const uint16_t request_length, cons
 
 public:
 virtual void step();
+
+protected:
+void stepMotorSetNextStep(int8_t direction);
 
 
 

@@ -60,7 +60,11 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
 
 
     // update motor state
-    if ((_modbus._controllerData._1_mode == CTRLR_MODE_DIRECT_CONTROL || _modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW) && _modbus._driverData._1_mode != DRIVER_SERVO_IDLE)
+    if (_modbus._driverData._1_mode != DRIVER_SERVO_IDLE)
+    {
+        // no activity in IDLE mode
+    }
+    else if ((_modbus._controllerData._1_mode == CTRLR_MODE_DIRECT_CONTROL || _modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW)
     {
         if (_modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW)
         {
@@ -71,7 +75,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
 
         if (_modbus._driverData._1_mode == DRIVER_SERVO_KEEP_POSITION)
         {
-            // same motor position
+            // same motor position, no inertia (simplification)
         }
         else if (_modbus._driverData._1_mode == DRIVER_SERVO_CONTINUOUS_SPEED)
         {
@@ -98,13 +102,48 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
         }
         else if (_modbus._driverData._1_mode == DRIVER_STEP_DIRECT)
         {
-            //_modbus._driverData._10_rotor_angle_direct_step
-            //TODO: update motor position
+            if (abs(_modbus._driverData._10_rotor_angle_direct_step) == 1)
+            {
+                // update motor position
+                // position +- step
+                _modbus._driverDataInput._3_rotor_absolute_angle_position += _modbus._driverData._10_rotor_angle_direct_step;
+
+                //stepMotorSetNextStep((int8_t) _modbus._driverData._10_rotor_angle_direct_step);
+
+                _modbus._driverData._10_rotor_angle_direct_step = 0;                
+            }
+
+            if (_modbus._driverData._10_rotor_angle_direct_step != 0)
+            {
+                //TODO: report illegal parameters: direct step must be +-1 or 0.
+            }
         }
     }
 
 
 }//END_139a1c7a4966eeccad82b1856e6ad1e1
+
+void oldportal::fhe::hardware::mechatronics::StepMotor::stepMotorSetNextStep(int8_t direction)
+{//BEGIN_38c4d5678390d929b9d3d69b4d812cba
+        // calculate shift
+        int8_t microstep_scaler = 4;// full step
+        if (_modbus._driverData._14_motor_step_scale == 2)
+            microstep_scaler = 2;
+        else if (_modbus._driverData._14_motor_step_scale == 4)
+            microstep_scaler = 1;
+
+        // update step mode data
+//        step_motor_data.pwmMicroStepMode += microstep_scaler * direction;
+//        if (step_motor_data.pwmMicroStepMode < 0)
+//            step_motor_data.pwmMicroStepMode += 64;
+//        if (step_motor_data.pwmMicroStepMode > 15)
+//            step_motor_data.pwmMicroStepMode = step_motor_data.pwmMicroStepMode % 16;
+
+        _currentStepStartTime = std::chrono::high_resolution_clock::now();
+
+        // set PWM rates for new step position
+        //StepMotorKeepPositionUpdatePWMRates();
+}//END_38c4d5678390d929b9d3d69b4d812cba
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
