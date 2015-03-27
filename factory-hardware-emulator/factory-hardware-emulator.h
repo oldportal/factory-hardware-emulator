@@ -122,6 +122,13 @@ namespace network
 class ModbusNetworkController;
 struct NetworkClock;
 
+namespace scheduled 
+{
+class ScheduledCommandRequest;
+class ScheduledCommandResult;
+class ScheduledDeviceCommandQueue;
+
+}// namespace scheduled
 }// namespace network
 }// namespace fhe
 }// namespace oldportal
@@ -151,6 +158,9 @@ struct NetworkClock;
 #include "hardware/mechatronics/StepMotorModbus.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
+#include "network/scheduled/ScheduledCommandRequest.h"
+#include "network/scheduled/ScheduledCommandResult.h"
+#include "network/scheduled/ScheduledDeviceCommandQueue.h"
 
 
 // global members
@@ -196,6 +206,9 @@ namespace fhe
 #include "hardware/mechatronics/StepMotorModbus.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
+#include "network/scheduled/ScheduledCommandRequest.h"
+#include "network/scheduled/ScheduledCommandResult.h"
+#include "network/scheduled/ScheduledDeviceCommandQueue.h"
 
 
 
