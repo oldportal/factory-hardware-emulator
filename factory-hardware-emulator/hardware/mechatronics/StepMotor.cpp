@@ -81,6 +81,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
         {
             float angle_speed = _modbus._driverData._4_rotor_angle_start_speed;
             //TODO: update motor position
+
         }
         else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION)
         {

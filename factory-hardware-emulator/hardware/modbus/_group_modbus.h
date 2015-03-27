@@ -7,7 +7,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Modbus communication interface data structures (modbus registers r*/
+Modbus communication interface data structures (modbus registers*/
 //END_GROUP_COMMENT
 
 

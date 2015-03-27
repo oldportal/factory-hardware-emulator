@@ -42,7 +42,11 @@ SOURCES += main.cpp \
     factory-hardware-emulator/hardware/mechatronics/StepMotorModbus.cpp \
     factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.cpp \
     factory-hardware-emulator/network/NetworkClock.cpp \
-    factory-hardware-emulator/hardware/modbus/InterfaceSettings.cpp
+    factory-hardware-emulator/hardware/modbus/InterfaceSettings.cpp \
+    factory-hardware-emulator/network/scheduled/_group_scheduled.cpp \
+    factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.cpp \
+    factory-hardware-emulator/network/scheduled/ScheduledCommandResult.cpp \
+    factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.cpp
 
 HEADERS += \
     factory-hardware-emulator/factory-hardware-emulator.h
