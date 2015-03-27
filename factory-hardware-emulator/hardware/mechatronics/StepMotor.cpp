@@ -64,7 +64,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
     {
         // no activity in IDLE mode
     }
-    else if ((_modbus._controllerData._1_mode == CTRLR_MODE_DIRECT_CONTROL || _modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW)
+    else if (_modbus._controllerData._1_mode == CTRLR_MODE_DIRECT_CONTROL || _modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW)
     {
         if (_modbus._controllerData._1_mode == CTRLR_MODE_NC_COMMANDS_FLOW)
         {
