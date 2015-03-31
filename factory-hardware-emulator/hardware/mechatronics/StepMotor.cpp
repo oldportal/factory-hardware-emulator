@@ -52,12 +52,14 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::process_request(const ui
 void oldportal::fhe::hardware::mechatronics::StepMotor::step()
 {//BEGIN_139a1c7a4966eeccad82b1856e6ad1e1
     // update controller data
+    _modbus._controllerData.step();
+
     //if (_modbus._controllerData._1_mode == 0)
 
     //TODO: update _controllerData
 
-    //TODO: update device time
 
+    _modbus.CheckDriverModbusParameters();
 
     // update motor state
     if (_modbus._driverData._1_mode != DRIVER_SERVO_IDLE)
@@ -121,7 +123,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotor::step()
         }
     }
 
-
+    _modbus.CheckDriverModbusParameters();
 }//END_139a1c7a4966eeccad82b1856e6ad1e1
 
 void oldportal::fhe::hardware::mechatronics::StepMotor::stepMotorSetNextStep(int8_t direction)

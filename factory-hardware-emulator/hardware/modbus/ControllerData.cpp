@@ -24,7 +24,7 @@ oldportal::fhe::hardware::modbus::ControllerData::ControllerData()
     _2_error_code = CTRLR_NO_ERRORS;
     _7_maximum_radiator_temperature = DEFAULT_MAXIMUM_RADIATOR_TEMPERATURE;
     _6_radiator_temperature = DEFAULT_RADIATOR_TEMPERATURE;
-    _3_device_time = 0;
+    _3_device_time = oldportal::fhe::network::GetSystemTime();
     _4_network_time_shift = 0;
     _5_maximum_system_step_timeout = 0;
 }//END_a96f949964f66617b8d302209eb52e51
@@ -81,6 +81,18 @@ void oldportal::fhe::hardware::modbus::ControllerData::saveToRegisterArray(const
     registers_i16[7] = _6_radiator_temperature;
     registers_i16[8] = _7_maximum_radiator_temperature;
 }//END_d18e7df10413c32d0e6e49b1a917b9fc
+
+void oldportal::fhe::hardware::modbus::ControllerData::step()
+{//BEGIN_bc40c9790d0c14986aae5e92d69cc370
+    // update maximum_system_step_timeout indication parameter
+        uint32_t step_time_shift = oldportal::fhe::network::CalculateTimeInterval(oldportal::fhe::network::GetSystemTime(), _3_device_time);
+        if (step_time_shift > UINT16_MAX)
+            step_time_shift = UINT16_MAX;
+        _5_maximum_system_step_timeout = step_time_shift;
+
+        // update device_time indication parameter
+        _3_device_time = oldportal::fhe::network::GetSystemTime();
+}//END_bc40c9790d0c14986aae5e92d69cc370
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

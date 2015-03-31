@@ -20,7 +20,7 @@ oldportal::fhe::hardware::modbus::SystemLogReport::SystemLogReport()
     _modbus_registers_sizeof = 5;
 
     // default values
-    _1_error_code = 0;
+    _1_error_code = CTRLR_NO_ERRORS;
     _2_count = 0;
     _3_last_time = 0;
     _4_last_parameter = 0;

@@ -35,6 +35,10 @@ namespace fhe
 namespace network 
 {
 // global methods declaration
+uint32_t CalculateTimeInterval(uint32_t current_clock, uint32_t last_clock);
+
+uint32_t GetSystemTime();
+
 }// namespace network
 }// namespace fhe
 }// namespace oldportal

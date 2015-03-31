@@ -40,8 +40,76 @@ oldportal::fhe::hardware::mechatronics::StepMotorModbus::StepMotorModbus()
                 _driverDataInput.getModbusRegistersSizeof() +
                 _systemLog[0].getModbusRegistersSizeof()*index;
     }
+
+    // first structure reserved for "other error" reports
+    _systemLog[0]._1_error_code = CTRLR_OTHER_ERROR;
 }//END_6ca1ad45040297580b922c50c0922d36
 
+
+void oldportal::fhe::hardware::mechatronics::StepMotorModbus::CheckDriverModbusParameters()
+{//BEGIN_a5188233ca8363a6d5a582c1c4b0cd99
+    if (_driverData._1_mode == DRIVER_SERVO_CONTINUOUS_SPEED)
+    {
+        if (abs(_driverData._7_rotor_angle_end_continuous_speed) > _driverData._13_motor_maximum_allowed_angle_speed)
+        {
+            // report system error
+            _driverData._2_hardware_error_code = DRIVER_SOFRWARE_COMMAND_ANGLE_OVERSPEED;
+            ctrlReportError(DRIVER_SOFRWARE_COMMAND_ANGLE_OVERSPEED);
+        }
+    }
+    else if (_driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION_TO_END_SPEED)
+    {
+        // check for system error where acceleration direction opposite to end speed:
+        if ((_driverData._7_rotor_angle_end_continuous_speed > 0 && _driverData._6_rotor_angle_acceleration_speed < 0) ||
+            (_driverData._7_rotor_angle_end_continuous_speed < 0 && _driverData._6_rotor_angle_acceleration_speed > 0))
+        {
+            // report system error
+            _driverData._2_hardware_error_code = DRIVER_SOFRWARE_COMMAND_ANGLE_ACCELERATION_OPPOSITE_TO_ENDSPEED;
+            ctrlReportError(DRIVER_SOFRWARE_COMMAND_ANGLE_ACCELERATION_OPPOSITE_TO_ENDSPEED);
+        }
+    }
+}//END_a5188233ca8363a6d5a582c1c4b0cd99
+
+void oldportal::fhe::hardware::mechatronics::StepMotorModbus::ctrlReportError(uint16_t error_code)
+{//BEGIN_b38277a56ee6ba25ce23545f9b221d90
+    ctrlReportErrorWithParameter(error_code, ZERO_ERROR_LOG_PARAMETER);
+}//END_b38277a56ee6ba25ce23545f9b221d90
+
+void oldportal::fhe::hardware::mechatronics::StepMotorModbus::ctrlReportErrorWithParameter(uint16_t error_code, uint16_t parameter)
+{//BEGIN_6b48935c77aadb47c2a2341a2f8c01f7
+    if (error_code == CTRLR_NO_ERRORS)
+            return;// nothing
+
+       _controllerData._2_error_code = error_code;
+
+        // clear log report structures
+        for (uint8_t index=0; index<CONTROLLER_LOG_SIZE; index++)
+        {
+            if (_systemLog[index]._1_error_code == CTRLR_NO_ERRORS)
+            {
+                // empty report structure - initialize for this error type
+                _systemLog[index]._1_error_code = error_code;
+            }
+
+            if (_systemLog[index]._1_error_code == error_code)
+            {
+                // same error structure - report error
+                if (_systemLog[index]._2_count < UINT16_MAX)
+                    _systemLog[index]._2_count++;
+
+                _systemLog[index]._4_last_parameter = parameter;
+                _systemLog[index]._3_last_time = oldportal::fhe::network::GetSystemTime();
+                return;
+            }
+        }
+
+        // no structures for this type reports and no empty structures -> report to zero structure reserved for "other error" reports
+        if (_systemLog[0]._2_count < UINT16_MAX)
+            _systemLog[0]._2_count++;
+
+        _systemLog[0]._4_last_parameter = parameter;
+        _systemLog[0]._3_last_time = oldportal::fhe::network::GetSystemTime();
+}//END_6b48935c77aadb47c2a2341a2f8c01f7
 
 void oldportal::fhe::hardware::mechatronics::StepMotorModbus::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_78fc3366898319efcb31f2aa857f113b
