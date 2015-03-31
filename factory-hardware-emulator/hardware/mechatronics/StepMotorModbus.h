@@ -5,7 +5,7 @@
 
 
 //BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
-
+#define ZERO_ERROR_LOG_PARAMETER (0)
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 
@@ -46,6 +46,18 @@ oldportal::fhe::hardware::modbus::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE
 
 
 //methods:
+
+/**
+check modbus parameters for correct structure
+*/
+public:
+void CheckDriverModbusParameters();
+
+public:
+void ctrlReportError(uint16_t error_code);
+
+public:
+void ctrlReportErrorWithParameter(uint16_t error_code, uint16_t parameter);
 
 public:
 virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);

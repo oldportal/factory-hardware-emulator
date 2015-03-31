@@ -103,6 +103,9 @@ virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
 public:
 virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
 
+public:
+virtual void step();
+
 
 
 //child groups:
