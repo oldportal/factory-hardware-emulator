@@ -21,12 +21,12 @@ namespace hardware
 namespace mechatronics 
 {
 
-struct StepMotorModbus
+struct MotorModbus
 :  public virtual oldportal::fhe::hardware::modbus::ModbusRegistersMapping
 {
 // constructors:
 public:
-StepMotorModbus();
+MotorModbus();
 
 
 // members:

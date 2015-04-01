@@ -100,9 +100,10 @@ class HardwareDevice;
 
 namespace mechatronics 
 {
+class Motor;
+struct MotorModbus;
+class MotorSettings;
 class StepMotor;
-struct StepMotorModbus;
-class StepMotorSettings;
 
 }// namespace mechatronics
 namespace modbus 
@@ -130,6 +131,10 @@ class ScheduledDeviceCommandQueue;
 
 }// namespace scheduled
 }// namespace network
+namespace system 
+{
+
+}// namespace system
 }// namespace fhe
 }// namespace oldportal
 
@@ -143,11 +148,12 @@ class ScheduledDeviceCommandQueue;
 #include "device/_group_device.h"
 #include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
+#include "system/_group_system.h"
 #include "network/NetworkClock.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
-#include "hardware/mechatronics/StepMotorSettings.h"
+#include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/modbus/ModbusRegistersMapping.h"
 #include "hardware/modbus/ControllerData.h"
 #include "hardware/modbus/InterfaceSettings.h"
@@ -155,7 +161,8 @@ class ScheduledDeviceCommandQueue;
 #include "hardware/modbus/StepMotorDriverData.h"
 #include "hardware/modbus/StepMotorDriverDataInput.h"
 #include "hardware/modbus/SystemLogReport.h"
-#include "hardware/mechatronics/StepMotorModbus.h"
+#include "hardware/mechatronics/MotorModbus.h"
+#include "hardware/mechatronics/Motor.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 #include "network/scheduled/ScheduledCommandRequest.h"
@@ -191,11 +198,12 @@ namespace fhe
 #include "device/_group_device.h"
 #include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
+#include "system/_group_system.h"
 #include "network/NetworkClock.h"
 #include "EmulatorApplication.h"
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
-#include "hardware/mechatronics/StepMotorSettings.h"
+#include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/modbus/ModbusRegistersMapping.h"
 #include "hardware/modbus/ControllerData.h"
 #include "hardware/modbus/InterfaceSettings.h"
@@ -203,7 +211,8 @@ namespace fhe
 #include "hardware/modbus/StepMotorDriverData.h"
 #include "hardware/modbus/StepMotorDriverDataInput.h"
 #include "hardware/modbus/SystemLogReport.h"
-#include "hardware/mechatronics/StepMotorModbus.h"
+#include "hardware/mechatronics/MotorModbus.h"
+#include "hardware/mechatronics/Motor.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
 #include "network/scheduled/ScheduledCommandRequest.h"

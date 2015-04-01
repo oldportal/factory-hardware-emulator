@@ -13,7 +13,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fhe::hardware::mechatronics::StepMotorSettings::StepMotorSettings()
+oldportal::fhe::hardware::mechatronics::MotorSettings::MotorSettings()
 
 {//BEGIN_2541b038464227043a96c274b108daaf
     _default_start_position = 0;

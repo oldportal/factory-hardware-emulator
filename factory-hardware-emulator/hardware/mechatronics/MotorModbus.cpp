@@ -13,7 +13,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fhe::hardware::mechatronics::StepMotorModbus::StepMotorModbus()
+oldportal::fhe::hardware::mechatronics::MotorModbus::MotorModbus()
 
 {//BEGIN_6ca1ad45040297580b922c50c0922d36
     // set structure sizeof
@@ -46,7 +46,7 @@ oldportal::fhe::hardware::mechatronics::StepMotorModbus::StepMotorModbus()
 }//END_6ca1ad45040297580b922c50c0922d36
 
 
-void oldportal::fhe::hardware::mechatronics::StepMotorModbus::CheckDriverModbusParameters()
+void oldportal::fhe::hardware::mechatronics::MotorModbus::CheckDriverModbusParameters()
 {//BEGIN_a5188233ca8363a6d5a582c1c4b0cd99
     if (_driverData._1_mode == DRIVER_SERVO_CONTINUOUS_SPEED)
     {
@@ -70,12 +70,12 @@ void oldportal::fhe::hardware::mechatronics::StepMotorModbus::CheckDriverModbusP
     }
 }//END_a5188233ca8363a6d5a582c1c4b0cd99
 
-void oldportal::fhe::hardware::mechatronics::StepMotorModbus::ctrlReportError(uint16_t error_code)
+void oldportal::fhe::hardware::mechatronics::MotorModbus::ctrlReportError(uint16_t error_code)
 {//BEGIN_b38277a56ee6ba25ce23545f9b221d90
     ctrlReportErrorWithParameter(error_code, ZERO_ERROR_LOG_PARAMETER);
 }//END_b38277a56ee6ba25ce23545f9b221d90
 
-void oldportal::fhe::hardware::mechatronics::StepMotorModbus::ctrlReportErrorWithParameter(uint16_t error_code, uint16_t parameter)
+void oldportal::fhe::hardware::mechatronics::MotorModbus::ctrlReportErrorWithParameter(uint16_t error_code, uint16_t parameter)
 {//BEGIN_6b48935c77aadb47c2a2341a2f8c01f7
     if (error_code == CTRLR_NO_ERRORS)
             return;// nothing
@@ -111,7 +111,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotorModbus::ctrlReportErrorWit
         _systemLog[0]._3_last_time = oldportal::fhe::network::GetSystemTime();
 }//END_6b48935c77aadb47c2a2341a2f8c01f7
 
-void oldportal::fhe::hardware::mechatronics::StepMotorModbus::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
+void oldportal::fhe::hardware::mechatronics::MotorModbus::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_78fc3366898319efcb31f2aa857f113b
     // check index range with modbus_mapping->nb_registers:
     assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
@@ -127,7 +127,7 @@ void oldportal::fhe::hardware::mechatronics::StepMotorModbus::loadFromRegisterAr
     }
 }//END_78fc3366898319efcb31f2aa857f113b
 
-void oldportal::fhe::hardware::mechatronics::StepMotorModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
+void oldportal::fhe::hardware::mechatronics::MotorModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_b71c476c1b34c76ccb5e14bfbb49777a
     // check index range with modbus_mapping->nb_registers:
     assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
