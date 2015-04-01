@@ -1,6 +1,6 @@
 
-#ifndef H_77feb5a37936fae508e72d629c5698b8_H
-#define H_77feb5a37936fae508e72d629c5698b8_H
+#ifndef H_7372c66e846958c2f7248a79fad5b127_H
+#define H_7372c66e846958c2f7248a79fad5b127_H
 
 
 
@@ -22,7 +22,7 @@ namespace mechatronics
 {
 
 class StepMotor
-:  public virtual oldportal::fhe::hardware::HardwareDevice
+:  public virtual oldportal::fhe::hardware::mechatronics::Motor
 {
 // constructors:
 public:
@@ -34,30 +34,11 @@ virtual ~StepMotor();
 
 // members:
 
-protected:
-std::chrono::high_resolution_clock::time_point _currentStepStartTime;
-public:
-long _current_position;
-public:
-oldportal::fhe::hardware::mechatronics::StepMotorModbus _modbus;
-public:
-oldportal::fhe::hardware::mechatronics::StepMotorSettings _settings;
-
 
 //methods:
 
-/**
-Process Modbus request.
-If message is not BROADCAST then send response.
-*/
-public:
-void process_request(const uint8_t* request, const uint16_t request_length, const uint8_t slave_address, const uint8_t modbus_function, modbus_t* modbus_ctx);
-
 public:
 virtual void step();
-
-protected:
-void stepMotorSetNextStep(int8_t direction);
 
 
 
@@ -84,11 +65,11 @@ void stepMotorSetNextStep(int8_t direction);
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_77feb5a37936fae508e72d629c5698b8_H
+#endif // H_7372c66e846958c2f7248a79fad5b127_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_77feb5a37936fae508e72d629c5698b8_INLINES_H
-#define H_77feb5a37936fae508e72d629c5698b8_INLINES_H
+#ifndef H_7372c66e846958c2f7248a79fad5b127_INLINES_H
+#define H_7372c66e846958c2f7248a79fad5b127_INLINES_H
 
-#endif // H_77feb5a37936fae508e72d629c5698b8_INLINES_H
+#endif // H_7372c66e846958c2f7248a79fad5b127_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

@@ -21,11 +21,11 @@ namespace hardware
 namespace mechatronics 
 {
 
-class StepMotorSettings
+class MotorSettings
 {
 // constructors:
 public:
-StepMotorSettings();
+MotorSettings();
 
 
 // members:
