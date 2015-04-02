@@ -80,7 +80,7 @@ void oldportal::fhe::hardware::mechatronics::Motor::servoCalculatePositionAndSpe
 
         rotor_angle_speed_error = current_planed_speed - _modbus._driverDataInput._1_rotor_angle_speed;
 
-        //_modbus._driverDataInput.rotor_planned_angle_speed = (uint16_t)current_planed_speed;
+        //_modbus._driverDataInput._4_rotor_planned_angle_speed = (uint16_t)current_planed_speed;
 
         //TODO: position and speed
     }
@@ -129,7 +129,7 @@ void oldportal::fhe::hardware::mechatronics::Motor::servoCalculatePositionAndSpe
 
         rotor_angle_speed_error = current_planed_speed - _modbus._driverDataInput._1_rotor_angle_speed;
 
-        //_modbus._driverDataInput.rotor_planned_angle_speed = (uint16_t)current_planed_speed;
+        //_modbus._driverDataInput._4_rotor_planned_angle_speed = (uint16_t)current_planed_speed;
 
         //TODO: position and speed
     }
@@ -149,7 +149,96 @@ void oldportal::fhe::hardware::mechatronics::Motor::servoCalculatePositionAndSpe
 
 void oldportal::fhe::hardware::mechatronics::Motor::servoCalculateSpeedAndTorque()
 {//BEGIN_f6e2a1705bd97f1a91b7869c4df93ce2
-    //TODO: servoCalculateSpeedAndTorque()
+    int16_t rotor_angle_speed_error = 0;
+
+    if (_modbus._driverData._1_mode == DRIVER_SERVO_IDLE)
+    {
+        _modbus._driverDataInput._4_rotor_planned_angle_speed = 0;
+    }
+    else if (_modbus._driverData._1_mode == DRIVER_SERVO_KEEP_POSITION)
+    {
+        //TODO: calculate keep position error and feedback torque
+    }
+    else if (_modbus._driverData._1_mode == DRIVER_SERVO_CONTINUOUS_SPEED)
+    {
+        rotor_angle_speed_error = _modbus._driverData._7_rotor_angle_end_continuous_speed - _modbus._driverDataInput._1_rotor_angle_speed;
+
+        _modbus._driverDataInput._4_rotor_planned_angle_speed = _modbus._driverData._7_rotor_angle_end_continuous_speed;
+
+        //TODO: torque
+    }
+    else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION)
+    {
+        uint32_t time_difference = oldportal::fhe::network::CalculateTimeInterval(oldportal::fhe::network::GetSystemTime(), _modbus._driverData._5_rotor_angle_start_speed_time);
+
+        int32_t current_planed_speed = _modbus._driverData._4_rotor_angle_start_speed + (_modbus._driverData._6_rotor_angle_acceleration_speed * time_difference) / F_SYSTEM_TIMER_TICKS;
+
+        if (abs(current_planed_speed) > _modbus._driverData._13_motor_maximum_allowed_angle_speed)
+            if (current_planed_speed >= 0)
+                current_planed_speed = _modbus._driverData._13_motor_maximum_allowed_angle_speed;
+            else
+                current_planed_speed = -_modbus._driverData._13_motor_maximum_allowed_angle_speed;
+
+        rotor_angle_speed_error = current_planed_speed - _modbus._driverDataInput._1_rotor_angle_speed;
+
+        _modbus._driverDataInput._4_rotor_planned_angle_speed = (uint16_t)current_planed_speed;
+
+        //TODO: torque
+    }
+    else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_AND_ACCELERATION_TO_END_SPEED)
+    {
+        uint32_t time_difference = oldportal::fhe::network::CalculateTimeInterval(oldportal::fhe::network::GetSystemTime(), _modbus._driverData._5_rotor_angle_start_speed_time);
+
+        int32_t current_planed_speed = _modbus._driverData._4_rotor_angle_start_speed + (_modbus._driverData._6_rotor_angle_acceleration_speed * time_difference) / F_SYSTEM_TIMER_TICKS;
+
+        // check for system error where acceleration direction opposite to end speed:
+        if ((_modbus._driverData._7_rotor_angle_end_continuous_speed > 0 && _modbus._driverData._6_rotor_angle_acceleration_speed < 0) ||
+            (_modbus._driverData._7_rotor_angle_end_continuous_speed < 0 && _modbus._driverData._6_rotor_angle_acceleration_speed > 0))
+        {
+            // report system error
+            _modbus._driverData._2_hardware_error_code = DRIVER_SOFRWARE_COMMAND_ANGLE_ACCELERATION_OPPOSITE_TO_ENDSPEED;
+            _modbus.ctrlReportError(DRIVER_SOFRWARE_COMMAND_ANGLE_ACCELERATION_OPPOSITE_TO_ENDSPEED);
+        }
+
+        // check for end speed
+        if (current_planed_speed > 0 && _modbus._driverData._7_rotor_angle_end_continuous_speed >= 0)
+            if  (current_planed_speed > _modbus._driverData._7_rotor_angle_end_continuous_speed)
+                current_planed_speed = _modbus._driverData._7_rotor_angle_end_continuous_speed;
+
+        if (current_planed_speed < 0 && _modbus._driverData._7_rotor_angle_end_continuous_speed <= 0)
+            if  (current_planed_speed < _modbus._driverData._7_rotor_angle_end_continuous_speed)
+                current_planed_speed = _modbus._driverData._7_rotor_angle_end_continuous_speed;
+
+        // check for maximum mechanic speed limit
+        if (abs(current_planed_speed) > _modbus._driverData._13_motor_maximum_allowed_angle_speed)
+        {
+            if (current_planed_speed >= 0)
+                current_planed_speed = _modbus._driverData._13_motor_maximum_allowed_angle_speed;
+            else
+                current_planed_speed = -_modbus._driverData._13_motor_maximum_allowed_angle_speed;
+
+            _modbus.ctrlReportError(DRIVER_SOFRWARE_COMMAND_ANGLE_OVERSPEED);
+        }
+
+        rotor_angle_speed_error = current_planed_speed - _modbus._driverDataInput._1_rotor_angle_speed;
+
+        _modbus._driverDataInput._4_rotor_planned_angle_speed = (uint16_t)current_planed_speed;
+
+        //TODO: torque
+    }
+    else if (_modbus._driverData._1_mode == DRIVER_SERVO_SPEED_TO_END_POSITION)
+    {
+        //TODO: position-driven mode
+    }
+    else if (_modbus._driverData._1_mode == DRIVER_SERVO_CONTINUOUS_FORCE)
+    {
+        _modbus._driverDataInput._4_rotor_planned_angle_speed = _modbus._driverDataInput._1_rotor_angle_speed;
+        _modbus._driverDataInput._5_rotor_planned_angle_torque = _modbus._driverData._9_rotor_angle_force;
+    }
+    else if (_modbus._driverData._1_mode == DRIVER_STEP_DIRECT)
+    {
+        //TODO:
+    }
 }//END_f6e2a1705bd97f1a91b7869c4df93ce2
 
 void oldportal::fhe::hardware::mechatronics::Motor::step()
