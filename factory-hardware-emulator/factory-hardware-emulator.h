@@ -47,6 +47,11 @@ For:
 
 #include <boost/crc.hpp>
 
+//#include <boost/log/core.hpp>
+//#include <boost/log/trivial.hpp>
+//#include <boost/log/utility/setup/file.hpp>
+//#include <boost/log/sources/severity_logger.hpp>
+
 #include <boost/property_tree/ptree.hpp>
 
 #include <boost/uuid/uuid.hpp>
