@@ -54,6 +54,11 @@ int main(int argc, char *argv[])
             return 1;
         }
 
+        // init boost log
+//        boost::log::add_file_log("factory-hardware-emulator.log");
+//        boost::log::core::get()->set_filter( boost::log::trivial::severity >= boost::log::trivial::trace );
+
+
         // init factory
         if (vm.count("config"))
         {

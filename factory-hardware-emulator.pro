@@ -18,8 +18,7 @@ LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options
 
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++0x
-#QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp \
     factory-hardware-emulator/_group_factory-hardware-emulator.cpp \
