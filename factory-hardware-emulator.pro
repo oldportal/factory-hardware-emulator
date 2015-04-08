@@ -14,7 +14,7 @@ CONFIG   -= app_bundle
 CONFIG   += boost
 CONFIG   += thread
 
-LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options
+LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options -llog4cxx
 
 TEMPLATE = app
 
@@ -50,3 +50,6 @@ SOURCES += main.cpp \
 
 HEADERS += \
     factory-hardware-emulator/factory-hardware-emulator.h
+
+#unix: CONFIG += link_pkgconfig
+#unix: PKGCONFIG += liblog4cxx10-dev
