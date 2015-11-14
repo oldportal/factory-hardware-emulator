@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="factory-hardware-emulator"
+                     displayName="factory-hardware-emulator"
+                     projectFiles="true">
+        <logicalFolder name="device" displayName="device" projectFiles="true">
+          <itemPath>factory-hardware-emulator/device/Device.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/device/Device.h</itemPath>
+          <itemPath>factory-hardware-emulator/device/_group_device.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/device/_group_device.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="hardware" displayName="hardware" projectFiles="true">
+          <logicalFolder name="mechatronics"
+                         displayName="mechatronics"
+                         projectFiles="true">
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/Motor.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/Motor.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/MotorModbus.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/MotorModbus.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/MotorSettings.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/MotorSettings.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/StepMotor.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="modbus" displayName="modbus" projectFiles="true">
+            <itemPath>factory-hardware-emulator/hardware/modbus/ControllerData.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/ControllerData.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/InterfaceSettings.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/InterfaceSettings.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/StepMotorDriverCalculationConstants.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/StepMotorDriverCalculationConstants.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/StepMotorDriverData.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/StepMotorDriverData.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/SystemLogReport.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/SystemLogReport.h</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/_group_modbus.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/hardware/modbus/_group_modbus.h</itemPath>
+          </logicalFolder>
+          <itemPath>factory-hardware-emulator/hardware/HardwareDevice.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/hardware/HardwareDevice.h</itemPath>
+          <itemPath>factory-hardware-emulator/hardware/_group_hardware.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/hardware/_group_hardware.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="network" displayName="network" projectFiles="true">
+          <logicalFolder name="scheduled" displayName="scheduled" projectFiles="true">
+            <itemPath>factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.h</itemPath>
+            <itemPath>factory-hardware-emulator/network/scheduled/ScheduledCommandResult.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/network/scheduled/ScheduledCommandResult.h</itemPath>
+            <itemPath>factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.h</itemPath>
+            <itemPath>factory-hardware-emulator/network/scheduled/_group_scheduled.cpp</itemPath>
+            <itemPath>factory-hardware-emulator/network/scheduled/_group_scheduled.h</itemPath>
+          </logicalFolder>
+          <itemPath>factory-hardware-emulator/network/ModbusNetworkController.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/network/ModbusNetworkController.h</itemPath>
+          <itemPath>factory-hardware-emulator/network/NetworkClock.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/network/NetworkClock.h</itemPath>
+          <itemPath>factory-hardware-emulator/network/_group_network.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/network/_group_network.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="system" displayName="system" projectFiles="true">
+          <itemPath>factory-hardware-emulator/system/_group_system.cpp</itemPath>
+          <itemPath>factory-hardware-emulator/system/_group_system.h</itemPath>
+        </logicalFolder>
+        <itemPath>factory-hardware-emulator/EmulatorApplication.cpp</itemPath>
+        <itemPath>factory-hardware-emulator/EmulatorApplication.h</itemPath>
+        <itemPath>factory-hardware-emulator/_group_factory-hardware-emulator.cpp</itemPath>
+        <itemPath>factory-hardware-emulator/factory-hardware-emulator.h</itemPath>
+      </logicalFolder>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>factory-hardware-emulator</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>11</standard>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibStdlibItem>PosixThreads</linkerLibStdlibItem>
+            <linkerLibLibItem>boost_system</linkerLibLibItem>
+            <linkerLibLibItem>boost_program_options</linkerLibLibItem>
+            <linkerLibLibItem>modbus</linkerLibLibItem>
+            <linkerLibLibItem>log4cxx</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="factory-hardware-emulator/EmulatorApplication.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/EmulatorApplication.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/_group_factory-hardware-emulator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/Device.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/Device.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/_group_device.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/_group_device.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/factory-hardware-emulator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/HardwareDevice.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/HardwareDevice.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/_group_hardware.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/_group_hardware.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/Motor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/Motor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorModbus.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorModbus.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorSettings.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorSettings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/StepMotor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ControllerData.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ControllerData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/InterfaceSettings.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/InterfaceSettings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverCalculationConstants.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverCalculationConstants.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverData.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/SystemLogReport.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/SystemLogReport.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/_group_modbus.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/_group_modbus.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/ModbusNetworkController.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/ModbusNetworkController.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/NetworkClock.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/NetworkClock.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/_group_network.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/_group_network.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandResult.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandResult.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/_group_scheduled.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/_group_scheduled.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/system/_group_system.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/system/_group_system.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <standard>11</standard>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="factory-hardware-emulator/EmulatorApplication.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/EmulatorApplication.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/_group_factory-hardware-emulator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/Device.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/Device.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/_group_device.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/device/_group_device.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/factory-hardware-emulator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/HardwareDevice.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/HardwareDevice.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/_group_hardware.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/_group_hardware.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/Motor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/Motor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorModbus.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorModbus.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorSettings.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/MotorSettings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/StepMotor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ControllerData.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ControllerData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/InterfaceSettings.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/InterfaceSettings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/ModbusRegistersMapping.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverCalculationConstants.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverCalculationConstants.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverData.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverData.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/StepMotorDriverDataInput.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/SystemLogReport.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/SystemLogReport.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/_group_modbus.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/hardware/modbus/_group_modbus.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/ModbusNetworkController.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/ModbusNetworkController.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/NetworkClock.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/NetworkClock.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/_group_network.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/_group_network.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandResult.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledCommandResult.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/_group_scheduled.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/network/scheduled/_group_scheduled.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/system/_group_system.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="factory-hardware-emulator/system/_group_system.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

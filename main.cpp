@@ -1,3 +1,27 @@
+/*
+*    factory-hardware-emulator - modbus network over TCP emulator console application. 
+*    
+*    This app is test emulation tool for factorycontroller. 
+* 
+*    This file is part of factorycontroller.
+*    
+*    factorycontroller is free software; you can redistribute it and/or modify
+*    it under the terms of the GNU Lesser General Public License as published by
+*    the Free Software Foundation; either version 2 of the License, or
+*    (at your option) any later version.
+*    
+*    factorycontroller is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Lesser General Public License for more details.
+*    
+*    You should have received a copy of the GNU Lesser General Public License
+*    along with factorycontroller; if not, write to the Free Software
+*    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*    
+*    Copyright (C) Dmitry Ognyannikov, 2012-2015
+*/
+
 #include "factory-hardware-emulator/factory-hardware-emulator.h"
 
 // command line argument parser
@@ -20,6 +44,15 @@ static void close_signal(int dummy)
     application->_network->close();
 
     exit(dummy);
+}
+
+void init_logging()
+{
+    // BasicConfigurator replaced with PropertyConfigurator.
+    //PropertyConfigurator::configure("log4cxx.properties");
+
+    log4cxx::BasicConfigurator::configure();
+    //log4cxx::LoggerPtr logger = log4cxx::Logger::getRootLogger();
 }
 
 int main(int argc, char *argv[])
@@ -47,9 +80,16 @@ int main(int argc, char *argv[])
               options(desc).positional(p).run(), vm);
     boost::program_options::notify(vm);
 
+    // init log
+    init_logging();
 
     // print general program description
-    std::cout << "factory-hardware-emulator" << std::endl;
+//    std::cout << "factory-hardware-emulator - modbus network over TCP emulator console application" << std::endl;
+//    std::cout << "This app is test emulation tool for factorycontroller." << std::endl;
+//    std::cout << "Copyright (C) Dmitry Ognyannikov, 2012-2015" << std::endl;
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "factory-hardware-emulator - modbus network over TCP emulator console application");
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "This app is test emulation tool for factorycontroller");
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "Copyright (C) Dmitry Ognyannikov, 2012-2015");
 
     if (vm.count("help"))
     {
@@ -62,10 +102,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // init log
-    BasicConfigurator::configure();
-    LoggerPtr rootLogger = Logger::getRootLogger();
-    LOG4CXX_INFO(rootLogger, "factory hardware emulator start");
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "factory hardware emulator start");
 
 
     // init factory
@@ -90,7 +127,7 @@ int main(int argc, char *argv[])
 
         application->_network->init();
 
-        // set exit signal cutch before enter main cylce
+        // set exit signal cutch before enter main cycle
         signal(SIGTERM, close_signal);
 
         application->_network->run();
@@ -108,7 +145,7 @@ int main(int argc, char *argv[])
 
         application->_network->init();
 
-        // set exit signal cutch before enter main cylce
+        // set exit signal cutch before enter main cycle
         signal(SIGTERM, close_signal);
 
         application->_network->run();
