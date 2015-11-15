@@ -13,6 +13,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+log4cxx::LoggerPtr oldportal::fhe::system::logger = log4cxx::Logger::getLogger("oldportal.fhe.system");
 
 
 

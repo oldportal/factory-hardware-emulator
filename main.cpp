@@ -33,9 +33,6 @@
 #include <log4cxx/helpers/exception.h>
 #include <log4cxx/ndc.h>
 
-using namespace log4cxx;
-using namespace log4cxx::helpers;
-
 // Global EmulatorApplication object
 std::shared_ptr<oldportal::fhe::EmulatorApplication> application;
 
@@ -104,14 +101,14 @@ int main(int argc, char *argv[])
 
     LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "factory hardware emulator start");
 
-
     // init factory
     if (vm.count("config"))
     {
         // file configuration loader
 
         std::string config_filename = vm["config"].as<std::string>();
-        std::cout << "Initialize with configuration file: " << config_filename << std::endl;
+        //std::cout << "Initialize with configuration file: " << config_filename << std::endl;
+        LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), std::string("Initialize with configuration file: ") + config_filename);
 
         application = std::make_shared<oldportal::fhe::EmulatorApplication>();
 
@@ -135,14 +132,17 @@ int main(int argc, char *argv[])
     else
     {
         // pure program loader (default)
-
-        std::cout << "Initialize with default configuration" << std::endl;
+        
+        //std::cout << "Initialize with default configuration" << std::endl;
+        LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "Initialize with default configuration (pure program loader)");
 
         application = std::make_shared<oldportal::fhe::EmulatorApplication>();
         application->_network = std::make_shared<oldportal::fhe::network::ModbusNetworkController>(application);
         std::shared_ptr<oldportal::fhe::device::Device> device = std::make_shared<oldportal::fhe::hardware::mechatronics::StepMotor>();
+        device->_modbus_address = 18;
         application->_devices.push_back(device);
-
+        LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "StepMotor device added, modbus_address: ");
+        
         application->_network->init();
 
         // set exit signal cutch before enter main cycle

@@ -9,7 +9,7 @@
 #include "../../factory-hardware-emulator.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-
+#include <stdint.h>
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
@@ -320,12 +320,12 @@ void oldportal::fhe::hardware::mechatronics::Motor::step()
 
 void oldportal::fhe::hardware::mechatronics::Motor::stepMotorSetNextStep(int8_t direction)
 {//BEGIN_38c4d5678390d929b9d3d69b4d812cba
-        // calculate shift
-        int8_t microstep_scaler = 4;// full step
-        if (_modbus._driverData._14_motor_step_scale == 2)
-            microstep_scaler = 2;
-        else if (_modbus._driverData._14_motor_step_scale == 4)
-            microstep_scaler = 1;
+    // calculate shift
+    int8_t microstep_scaler = 4;// full step
+    if (_modbus._driverData._14_motor_step_scale == 2)
+        microstep_scaler = 2;
+    else if (_modbus._driverData._14_motor_step_scale == 4)
+        microstep_scaler = 1;
 
         // update step mode data
 //        step_motor_data.pwmMicroStepMode += microstep_scaler * direction;
@@ -334,14 +334,15 @@ void oldportal::fhe::hardware::mechatronics::Motor::stepMotorSetNextStep(int8_t 
 //        if (step_motor_data.pwmMicroStepMode > 15)
 //            step_motor_data.pwmMicroStepMode = step_motor_data.pwmMicroStepMode % 16;
 
-        _currentStepStartTime = std::chrono::high_resolution_clock::now();
+    _currentStepStartTime = std::chrono::high_resolution_clock::now();
 
-        // set PWM rates for new step position
-        //StepMotorKeepPositionUpdatePWMRates();
+    // set PWM rates for new step position
+    //StepMotorKeepPositionUpdatePWMRates();
 }//END_38c4d5678390d929b9d3d69b4d812cba
 
 void oldportal::fhe::hardware::mechatronics::Motor::stopAllDeviceActivity()
 {//BEGIN_827fa5cd792ee4d2e5996a97826b7edf
+    LOG4CXX_INFO(logger, std::string("Motor::stopAllDeviceActivity(), _modbus_address: ") + std::to_string(_modbus_address));
     //TODO: stopAllDeviceActivity()
 }//END_827fa5cd792ee4d2e5996a97826b7edf
 

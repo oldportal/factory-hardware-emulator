@@ -65,6 +65,8 @@ void oldportal::fhe::network::ModbusNetworkController::init()
 {//BEGIN_3b09a28375be1e7d2d8a78eaea0d11a9
     assert(_modbus_ctx == nullptr);
     assert(_query == nullptr);
+    
+    LOG4CXX_INFO(logger, "ModbusNetworkController::init() call. Bind to 127.0.0.1:1502.");
 
     _modbus_ctx = modbus_new_tcp_pi("127.0.0.1", "1502");
     modbus_set_debug(_modbus_ctx, TRUE);
@@ -93,9 +95,12 @@ void oldportal::fhe::network::ModbusNetworkController::run()
     if (modbus_tcp_pi_accept(_modbus_ctx, &_socket) == -1)
     {
         fprintf(stderr, "Receive request error: %s\n", modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, std::string("Receive request error: ") + modbus_strerror(errno));
         return;
     }
 
+    LOG4CXX_INFO(logger, "ModbusNetworkController::run() - start main request receiving cycle");
+    
     _run_thread_cycle_flag = true;
     while (_run_thread_cycle_flag)
     {
@@ -138,6 +143,7 @@ void oldportal::fhe::network::ModbusNetworkController::run()
             {
                 // out error description:
                 fprintf(stderr, "Receive request error: %s\n", modbus_strerror(errno));
+                LOG4CXX_ERROR(logger, std::string("Receive request error: ") + modbus_strerror(errno));
             }
 
             close();
