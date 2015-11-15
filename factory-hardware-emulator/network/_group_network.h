@@ -23,6 +23,7 @@ namespace fhe
 namespace network 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace network
 }// namespace fhe
 }// namespace oldportal

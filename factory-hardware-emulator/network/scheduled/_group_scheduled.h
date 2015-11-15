@@ -25,6 +25,7 @@ namespace network
 namespace scheduled 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace scheduled
 }// namespace network
 }// namespace fhe

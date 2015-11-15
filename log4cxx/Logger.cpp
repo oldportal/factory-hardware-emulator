@@ -6,16 +6,19 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "../../factory-hardware-emulator.h"
+#include "log4cxx.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-log4cxx::LoggerPtr oldportal::fhe::hardware::modbus::logger = log4cxx::Logger::getLogger("oldportal.fhe.hardware.modbus");
-
-
+log4cxx::LoggerPtr log4cxx::Logger::getRootLogger()
+{//BEGIN_117ecd8f638329bb18cd3551e25a3f1d
+    LoggerPtr ret;
+    //TODO: getRootLogger()
+    return ret;
+}//END_117ecd8f638329bb18cd3551e25a3f1d
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

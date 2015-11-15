@@ -1,0 +1,56 @@
+
+#ifndef H_00af00bf0f641a5bf7a5b6a8f89e960c_H
+#define H_00af00bf0f641a5bf7a5b6a8f89e960c_H
+
+
+
+//BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
+
+//END_USER_SECTION_BEFORE_CLASS_DECLARATION
+
+
+/**
+
+*/
+namespace log4cxx 
+{
+
+class PropertyConfigurator
+{
+// constructors:
+
+
+// members:
+
+
+//methods:
+
+
+//child groups:
+
+
+//child classes:
+
+
+//BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
+
+//END_USER_SECTION_INSIDE_CLASS_DECLARATION
+
+
+};
+}// namespace log4cxx
+
+
+//BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
+
+//END_USER_SECTION_AFTER_CLASS_DECLARATION
+
+
+#endif // H_00af00bf0f641a5bf7a5b6a8f89e960c_H
+
+#ifdef OBJECTS_BUILDER_PROJECT_INLINES
+#ifndef H_00af00bf0f641a5bf7a5b6a8f89e960c_INLINES_H
+#define H_00af00bf0f641a5bf7a5b6a8f89e960c_INLINES_H
+
+#endif // H_00af00bf0f641a5bf7a5b6a8f89e960c_INLINES_H
+#endif //OBJECTS_BUILDER_PROJECT_INLINES

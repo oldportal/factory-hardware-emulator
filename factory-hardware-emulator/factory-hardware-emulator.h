@@ -183,6 +183,7 @@ namespace oldportal
 namespace fhe 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace fhe
 }// namespace oldportal
 

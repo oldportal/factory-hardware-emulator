@@ -7,7 +7,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Modbus communication interface data structures (modbus*/
+Modbus communication interface data structures (modbu*/
 //END_GROUP_COMMENT
 
 
@@ -25,6 +25,7 @@ namespace hardware
 namespace modbus 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace modbus
 }// namespace hardware
 }// namespace fhe

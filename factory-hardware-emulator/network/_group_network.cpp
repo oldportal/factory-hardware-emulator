@@ -13,6 +13,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+log4cxx::LoggerPtr oldportal::fhe::network::logger = log4cxx::Logger::getLogger("oldportal.fhe.network");
 
 
 uint32_t oldportal::fhe::network::CalculateTimeInterval(uint32_t current_clock, uint32_t last_clock)

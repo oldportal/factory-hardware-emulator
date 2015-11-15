@@ -23,6 +23,7 @@ namespace fhe
 namespace hardware 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace hardware
 }// namespace fhe
 }// namespace oldportal
