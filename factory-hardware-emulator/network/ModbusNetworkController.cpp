@@ -1,4 +1,23 @@
-
+/*
+*    This file is part of FactoryController project.
+*    
+*    factory-hardware-emulator is free software; you can redistribute it and/or modify
+*    it under the terms of the GNU Lesser General Public License as published by
+*    the Free Software Foundation; either version 2 of the License, or
+*    (at your option) version 3.
+*    
+*    factory-hardware-emulator is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Lesser General Public License for more details.
+*    
+*    You should have received a copy of the GNU Lesser General Public License
+*    along with factory-hardware-emulator; if not, write to the Free Software
+*    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*    
+*    Copyright (C) Dmitry Ognyannikov, 2014-2016
+*    dmogn@mail.ru
+*/
 
 
 //BEGIN_USER_SECTION_BEFORE_MASTER_INCLUDE
@@ -104,23 +123,26 @@ void oldportal::fhe::network::ModbusNetworkController::run()
     _run_thread_cycle_flag = true;
     while (_run_thread_cycle_flag)
     {
-        // bytes received:
-        int received_length;
-
         // clear error register
         errno = 0;
 
-        received_length = modbus_receive(_modbus_ctx, _query);
+        // bytes received:
+        const int received_length = modbus_receive(_modbus_ctx, _query);
 
         if (received_length > 0) {
             fprintf(stdout, "Request received, length: %i\n", received_length);
 
             // process device address
 
-            int offset = modbus_get_header_length(_modbus_ctx);
-            uint8_t slave_address = _query[offset - 1];
-            uint8_t function = _query[offset];
-            uint16_t address = (_query[offset + 1] << 8) + _query[offset + 2];
+            const int header_length = modbus_get_header_length(_modbus_ctx);
+            // slave device address
+            const uint8_t slave_address = _query[header_length - 1];
+            // Modbus function
+            const uint8_t function = _query[header_length];
+            // Starting Address
+            //const uint16_t starting_address = (_query[header_length + 1] << 8) + _query[header_length + 2];
+            // Quantity of Registers
+            //const uint16_t quantity_of_registers = (_query[header_length + 3] << 8) + _query[header_length + 4];
 
             std::shared_ptr<oldportal::fhe::EmulatorApplication> application = _application.lock();
             assert(application);

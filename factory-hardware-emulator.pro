@@ -8,7 +8,7 @@ QT       += core
 
 QT       -= gui
 
-TARGET = factory-hardware-emulator
+TARGET = factory_hardware_emulator
 CONFIG   += console
 CONFIG   -= app_bundle
 CONFIG   += boost
