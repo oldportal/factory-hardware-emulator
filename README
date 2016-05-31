@@ -1,0 +1,13 @@
+Factory Hardware Emulator
+
+FactoryController testing/verification tool. Simulate MODBUS-TCP industrial network with set of devices.
+
+Features
+
+*    MODBUS-TCP industrial network client
+*    Set of simulated devices
+
+License
+GNU Library or Lesser General Public License version 3.0 (LGPLv3)
+
+Copyright (C) Dmitry Ognyannikov, 2012-2016
